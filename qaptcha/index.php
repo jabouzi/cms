@@ -55,6 +55,8 @@
 		<div class="clr"></div>
 		
 		<div id="QapTcha"></div>
+		<input type="text" id="input_captcha" name="input_captcha" value=""/>
+        <br />
 		<input type="submit" name="submit" value="Submit form" />
 	</fieldset>
 </form>
