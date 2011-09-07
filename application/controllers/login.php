@@ -4,39 +4,19 @@ class Login extends CI_Controller
 {   
     function __construct() 
     {
-        parent::__construct();        
-        $this->load->model('stores_model');       
-        $this->load->model('users_model');  
-        $this->load->model('wishlist_model');  
-        $this->load->library('ipinfodb');       
+        parent::__construct();
+        $this->load->model('admin_model');
     }    
     
     function index()
-    {        
-        if (!isset($this->session->userdata['lang']))
+    {
+        if (isset($this->session->userdata['lang']))
         {
-            $this->session->set_userdata(array('lang' =>'en'));
-            $userLocation = $this->get_user_location();
-            if ($userLocation['RegionName'] == 'Quebec')
-            {
-                $this->session->set_userdata(array('lang' =>'fr'));
-            }
-        }
-        
-        if (isset($this->session->userdata['user']))
-        {            
-            if ($this->session->userdata['user_type'] == 3)
-            {                
-                redirect('categories');
-            }            
-            else
-            {
-                redirect('admin');
-            }
+            $this->load->view('admin_index');
         }
         else
         {
-            redirect('login/loginindex');
+            $this->load->view('login');
         }
     }
     
