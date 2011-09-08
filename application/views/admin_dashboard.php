@@ -2,10 +2,10 @@
     <div id="wrapper">
         <header>
             <div class="container_8 clearfix">
-                <h1 class="grid_1"><a href="dashboard.html">Streamlined</a></h1>
+                <h1 class="grid_1"><a href="dashboard.html">MyCMS</a></h1>
                 <nav class="grid_5">
                     <ul class="clearfix">
-                        <li class="action">
+                        <!--<li class="action">
                             <a href="#" class="has-popupballoon button button-blue"><span class="add"></span>New Contact</a>
                             <div class="popupballoon top">
                                 <h3>Add new contact</h3>
@@ -33,15 +33,15 @@
                                 <button class="button button-orange">Add task</button>
                                 <button class="button button-gray close">Cancel</button>
                             </div>
-                        </li>
+                        </li>-->
                         <li class="active"><a href="dashboard.html">Dashboard</a></li>
                         <li><a href="profile.html">Profile</a></li>
                         <li class="fr"><a href="#">administrator<span class="arrow-down"></span></a>
                             <ul>
-                                <li><a href="#">Account</a></li>
+                                <!--<li><a href="#">Account</a></li>
                                 <li><a href="#">Users</a></li>
-                                <li><a href="#">Groups</a></li>
-                                <li><a href="#">Sign out</a></li>
+                                <li><a href="#">Groups</a></li>-->
+                                <li><a href="/login/logout">Sign out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -119,7 +119,7 @@
                                 <li><a href="documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
                             </ul>
                             <h2>
-                                Welcome to Streamlined!
+                                Welcome to MyCMS!
                             </h2>
                         </header>
                         <section class="container_6 clearfix">

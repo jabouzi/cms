@@ -15,7 +15,7 @@ class Login extends CI_Controller
     {
         if (isset($this->session->userdata['user']))
         {
-            $this->load->view('admin_index');
+            redirect('admin');
         }
         else
         {
