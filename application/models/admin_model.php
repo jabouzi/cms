@@ -6,14 +6,7 @@ class Admin_model extends CI_Model
     {
         $data = $this->db->get('access_users');
         return $data->result();
-    }
-    
-    public function get_all_type2()
-    {
-        $this->db->where('type','2');
-        $data = $this->db->get('access_users');
-        return $data->result();
-    }
+    }    
     
     public function get_id($email)
     {        
@@ -57,11 +50,9 @@ class Admin_model extends CI_Model
     
     public function check_login($username, $password)
     {       
-        $this->db->where('email',$username);
-        $this->db->where('password',$password);
-        $this->db->where('active','1');
-        $this->db->from('access_users');
-        return $this->db->count_all_results();
+        $this->db->where('user_email',$username);
+        $data = $this->db->get('user_password');
+        return $data->result();
     }
     
     public function add_user($data)

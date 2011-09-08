@@ -56,7 +56,7 @@ $(document).ready(function(){
       <header><h2>MyCMS Login</h2></header>
     	<section>
     		<div class="message info">Enter your username and password and press Login</div>
-    		<form id="form" action="dashboard.html" method="post" class="clearfix">
+    		<form id="form" action="<?=base_url()?>login/userloginaction/" method="post" class="clearfix">
 			<p>
 				<input type="text" id="username"  class="full" value="" name="username" required="required" placeholder="Username" />
 			</p>
