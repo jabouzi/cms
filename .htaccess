@@ -1,12 +1,6 @@
 <IfModule mod_rewrite.c>
-    #AddType application/x-httpd-php5 .php
-
-    DirectoryIndex index.php
-
-	RewriteEngine on
-	RewriteBase /belron_pp/admin1
-	Order allow,deny
-	Allow from all
+    RewriteEngine On
+    RewriteBase /
 
     #Removes access to the system folder by users.
     #Additionally this will allow you to create a System.php controller,

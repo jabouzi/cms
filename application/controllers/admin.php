@@ -1,22 +1,23 @@
 <?php
 
 class Admin extends CI_Controller
-{    
+{
+    private $errors = array();
+    
     function __construct() 
     {
         parent::__construct();
         $this->load->model('admin_model');
         $this->load->library('class_decrypt');
-        private $errors = array();
     }    
     
     function index()
     {    
         if (isset($this->session->userdata['user']))
         {
-            //$this->load->view('header_admin',$data);    
+            $this->load->view('admin_header');    
             $this->load->view('admin_dashboard');    
-           // $this->load->view('change_password');
+            $this->load->view('admin_footer');
         }
         else
         {

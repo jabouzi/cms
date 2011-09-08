@@ -14,13 +14,14 @@ class class_decrypt
     public static function decrypt($array, $array2)
     {
         $temp = array();
+        $str = '';
         for($i = 0; $i < count($array); $i++)
         {
             $a = octdec($array[$i]);
             $b = octdec($array2[$i]);
             $c = decoct($a - $b);
             $str = $str.chr(octdec($c));
-        }	
+        }
         return $str;
     }
 

@@ -1,32 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Streamlined - Contact Management/CRM Template</title>
-
-<link rel="stylesheet" media="screen" href="css/reset.css" />
-<link rel="stylesheet" media="screen" href="css/grid.css" />
-<link rel="stylesheet" media="screen" href="css/style.css" />
-<link rel="stylesheet" media="screen" href="css/messages.css" />
-<link rel="stylesheet" media="screen" href="css/forms.css" />
-
-<!--[if lt IE 8]>
-<link rel="stylesheet" media="screen" href="css/ie.css" />
-<![endif]-->
-
-<!-- jquerytools -->
-<script src="js/jquery.tools.min.js"></script>
-
-<script type="text/javascript" src="js/global.js"></script>
-
-<!--[if lt IE 9]>
-<script type="text/javascript" src="js/html5.js"></script>
-<script type="text/javascript" src="js/PIE.js"></script>
-<script type="text/javascript" src="js/IE9.js"></script>
-<script type="text/javascript" src="js/ie.js"></script>
-<![endif]-->
-
-</head>
 <body>
     <div id="wrapper">
         <header>
@@ -165,17 +136,17 @@
                             </hgroup>
 
                             <figure class="grid_2 ac">
-                                <img src="images/asset1.jpg" />
+                                <img src="<?=base_url()?>public/images/asset1.jpg" />
                                 <h3>Lorem Ipsum Dolor Sit Amet</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
                             </figure>
                             <figure class="grid_2 ac">
-                                <img src="images/asset2.jpg" />
+                                <img src="<?=base_url()?>public/images/asset2.jpg" />
                                 <h3>Lorem Ipsum Dolor Sit Amet</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
                             </figure>
                             <figure class="grid_2 ac">
-                                <img src="images/asset3.jpg" />
+                                <img src="<?=base_url()?>public/images/asset3.jpg" />
                                 <h3>Lorem Ipsum Dolor Sit Amet</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
                             </figure>
@@ -207,14 +178,4 @@
             </div>
             <div id="push"></div>
         </section>
-    </div>
-    
-    <footer>
-        <div id="footer-inner" class="container_8 clearfix">
-            <div class="grid_8">
-                <span class="fr"><a href="#">Documentation</a> | <a href="#">Feedback</a></span>Last account activity from 127.0.0.1 - <a href="#">Details</a> | &copy; 2010. All rights reserved. Theme design by VivantDesigns
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+    </div>   

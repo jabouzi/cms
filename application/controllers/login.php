@@ -1,13 +1,14 @@
 <?php
 
 class Login extends CI_Controller
-{   
+{
+    private $errors = array();
+    
     function __construct() 
     {
         parent::__construct();
         $this->load->model('admin_model');
         $this->load->library('class_decrypt');
-        //private $errors = array();
     }    
     
     function index()
@@ -23,18 +24,17 @@ class Login extends CI_Controller
     }    
     
     function userloginaction()
-    {        
-        var_dump($_POST);exit;        
+    {   
         $error = 'Your username or password is invalid';
         if (!$this->user_login_valid(strtolower($_POST['username']),strtolower($_POST['password']))) $this->errors[0] = $error;
         if (empty($this->errors))
         {
             $data['user'] = $_POST['username'];
             $user = $this->admin_model->get_name($_POST['username']);
-            $this->session->set_userdata('name',$user[0]->first_name.' '.$user[0]->family_name);     
+            $this->session->set_userdata('name',$user[0]->user_first_name.' '.$user[0]->user_family_name);     
             $this->session->set_userdata($data);
                 
-            //redirect('admin');
+            redirect('admin');
         }
         else
         {
@@ -53,7 +53,7 @@ class Login extends CI_Controller
     {
         $userpassword = $this->admin_model->check_login($username,$password);
         $array2 = class_decrypt::keycalc('skanderjabouzi.com');
-        $array = class_decrypt::stringtoarray($userpassword);
+        $array = class_decrypt::stringtoarray($userpassword[0]->user_password);
         if ($password == class_decrypt::transformstring($array, $array2))
         {
            return true;     
