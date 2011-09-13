@@ -51,7 +51,7 @@
                         </header>
                         <section class="container_6 clearfix">                            
                           
-                            <div class="other-options grid_6">
+                            <div class="grid_6">
                                 <p>
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
                                 </p>
