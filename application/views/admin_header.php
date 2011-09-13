@@ -10,6 +10,12 @@
 <link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/messages.css" />
 <link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/forms.css" />
 
+<?if (isset($stylesheet)):?>
+    <?foreach ($stylesheet as $css):?>
+        <link rel="stylesheet" media="screen" href="<?=$css?>" />
+    <?endforeach?>
+<?endif?>
+
 <!--[if lt IE 8]>
 <link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/ie.css" />
 <![endif]-->
@@ -18,6 +24,20 @@
 <script src="<?=base_url()?>public/js/jquery.tools.min.js"></script>
 
 <script type="text/javascript" src="<?=base_url()?>public/js/global.js"></script>
+
+<?if (isset($javascript)):?>
+    <?foreach ($javascript as $js):?>
+        <script type="text/javascript" src="<?=$js?>"></script>
+    <?endforeach?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#newpost").cleditor({
+            width:        750,
+            height:       400
+        });
+      });
+    </script>
+<?endif?>
 
 <!--[if lt IE 9]>
 <script type="text/javascript" src="<?=base_url()?>public/js/html5.js"></script>
