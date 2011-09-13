@@ -25,6 +25,20 @@ class Admin extends CI_Controller
         }
     }
     
+    function posts()
+    {    
+        if (isset($this->session->userdata['user']))
+        {
+            $this->load->view('admin_header');    
+            $this->load->view('admin_posts');    
+            $this->load->view('admin_footer');
+        }
+        else
+        {
+            redirect('login');
+        }
+    }
+    
     function manage_clients()
     {    
         if (isset($this->session->userdata['nom']))
@@ -81,71 +95,7 @@ class Admin extends CI_Controller
         {
             redirect('login/index');
         }
-    }
-    
-    function upload_file()
-    {    
-        if (isset($this->session->userdata['nom']))
-        {
-            //ini_set('memory_limit','300M');
-            //ini_set('max_execution_time','36000');
-            $config['upload_path'] = './upload/';
-            $config['allowed_types'] = 'php|txt|xls|xml';
-            $config['max_size']    = '0';        
-            $this->load->library('upload', $config);
-    
-            if ( ! $this->upload->do_upload())
-            {
-                $error = array('error' => $this->upload->display_errors());
-                $permissions = unserialize($this->session->userdata['permissions']);
-                $data['permissions'] = $permissions;
-                $css[] = "css/form.css";
-                $js[] = "js/admin.js";       
-                $data['javascript'] = $js;
-                $selected['0'] = 'notselected';
-                $selected['1'] = 'notselected';
-                $selected['2'] = 'notselected';
-                $selected['3'] = 'selected';
-                $selected['4'] = 'notselected';
-                $data['stylesheet'] = $css;
-                $data['selected'] = $selected;
-                $this->load->view('header_admin',$data);    
-                $this->load->view('menu_admin');    
-                $this->load->view('upload_view', $error);
-            }    
-            else
-            {
-                $data = array('upload_data' => $this->upload->data());
-                $this->load->library('Excel/spreadsheet_Excel_Reader');
-                $excel = new Spreadsheet_Excel_Reader();
-
-            // Set output Encoding.
-                $excel->setOutputEncoding('CP1251');
-            
-            //lecture du fichier excel
-                $excel->read('./upload/' . $data['upload_data']['file_name']);                
-
-                $array = $excel->sheets[0]['cells'];
-                $temp = array_shift($array);
-                var_dump($array);
-                //$this->data_model->insert_entry($array);
-                
-                $this->load->view('header_admin');    
-                $selected['0'] = 'notselected';
-                $selected['1'] = 'notselected';
-                $selected['2'] = 'notselected';
-                $selected['3'] = 'selected';
-                $selected['4'] = 'notselected';
-                $data['selected'] = $selected;    
-                $this->load->view('upload_success', $data);
-            }
-            //$this->load->view('footer');
-        }
-        else
-        {
-            redirect('login/index');
-        }
-    }
+    }    
     
     function change_password()
     {    

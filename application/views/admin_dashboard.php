@@ -2,45 +2,13 @@
     <div id="wrapper">
         <header>
             <div class="container_8 clearfix">
-                <h1 class="grid_1"><a href="dashboard.html">MyCMS</a></h1>
+                <h1 class="grid_1"><a href="/admin/">MyCMS</a></h1>
                 <nav class="grid_5">
-                    <ul class="clearfix">
-                        <!--<li class="action">
-                            <a href="#" class="has-popupballoon button button-blue"><span class="add"></span>New Contact</a>
-                            <div class="popupballoon top">
-                                <h3>Add new contact</h3>
-                                First Name<br />
-                                <input type="text" /><br />
-                                Last Name<br />
-                                <input type="text" /><br />
-                                Company<br />
-                                <input type="text" />
-                                <hr />
-                                <button class="button button-orange">Add contact</button>
-                                <button class="button button-gray close">Cancel</button>
-                            </div>
-                        </li>
-                        <li class="action">
-                            <a href="#" class="has-popupballoon button button-blue"><span class="add"></span>New Task</a>
-                            <div class="popupballoon top">
-                                <h3>Add new task</h3>
-                                <input type="text" /><br /><br />
-                                When it's due?<br />
-                                <input type="date" /><br />
-                                What category?<br />
-                                <select><option>None</option></select>
-                                <hr />
-                                <button class="button button-orange">Add task</button>
-                                <button class="button button-gray close">Cancel</button>
-                            </div>
-                        </li>-->
-                        <li class="active"><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="profile.html">Profile</a></li>
+                    <ul class="clearfix">                        
+                        <li class="active"><a href="/admin/">Dashboard</a></li>
+                        <li><a href="#">Profile</a></li>
                         <li class="fr"><a href="#">administrator<span class="arrow-down"></span></a>
-                            <ul>
-                                <!--<li><a href="#">Account</a></li>
-                                <li><a href="#">Users</a></li>
-                                <li><a href="#">Groups</a></li>-->
+                            <ul>                                
                                 <li><a href="/login/logout">Sign out</a></li>
                             </ul>
                         </li>
@@ -61,49 +29,10 @@
 
                     <nav class="global">
                         <ul class="clearfix">
-                            <li class="active"><a class="nav-icon icon-house" href="dashboard.html">Overview</a></li>
-                            <li><a class="nav-icon icon-time" href="activity.html">Latest Activity</a></li>
-                            <li><a class="nav-icon icon-book" href="contacts.html"><span>2</span>Contacts</a></li>
-                            <li><a class="nav-icon icon-tick" href="tasks.html"><span>1</span>Tasks</a></li>
-                            <li><a class="nav-icon icon-note" href="notes.html">Notes</a></li>
+                            <li class="active"><a class="nav-icon icon-house" href="/admin/">Overview</a></li>
+                            <li><a class="nav-icon icon-time" href="/admin/posts/">Posts</a></li>
                         </ul>
-                    </nav>
-
-                    <nav class="subnav recent">
-                        <h4>Recent Contacts</h4>
-                        <ul class="clearfix">
-                            <li>
-                                <a class="contact" href="profile.html"><h5>John Doe</h5><h6>Some Company LTD</h6></a>
-                                <div class="tooltip left">
-                                    <span class="avatar">
-                                    </span>
-                                    <h5>John Doe</h5>
-                                    <h6>Some Company LTD</h6>
-                                    <address>123 Some Street, LA</address>
-                                </div>
-                            </li>
-                            <li>
-                                <a class="contact" href="profile.html"><h5>Jane Roe</h5><h6>Other Company Inc.</h6></a>
-                                <div class="tooltip left">
-                                    <span class="avatar">
-                                    </span>
-                                    <h5>Jane Roe</h5>
-                                    <h6>Other Company Inc.</h6>
-                                    <address>456 Other Street, LA</address>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <nav class="subnav">
-                        <h4>Style Templates</h4>
-                        <ul class="clearfix">
-                            <li><a href="layouts.html">Layouts</a></li>
-                            <li><a href="styles.html">Styles</a></li>
-                            <li><a href="forms.html">Forms</a></li>
-                            <li><a href="tables.html">Tables</a></li>
-                        </ul>
-                    </nav>
+                    </nav>                    
                 </aside>
 
                 <!-- Sidebar End -->
@@ -114,10 +43,7 @@
                 <section class="main-section grid_7">
 
                     <div class="main-content">
-                        <header>
-                            <ul class="action-buttons clearfix fr">
-                                <li><a href="documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
-                            </ul>
+                        <header>                            
                             <h2>
                                 Welcome to MyCMS!
                             </h2>
@@ -126,7 +52,7 @@
                             <div class="grid_6">
                                 <div class="message info ac">
                                     <h3>Get started: <a href="#">Add contacts to your account</a></h3>
-                                    <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh. Cras egestas vestibulum nisl, nec eleifend nunc pulvinar non.</p>
+                                    <p>Mettre google analytics ici !. ou autres systèmes semblabes</p>
                                 </div>
                             </div>
 
