@@ -39,6 +39,34 @@ class Admin extends CI_Controller
         }
     }
     
+    function newpost()
+    {    
+        if (isset($this->session->userdata['user']))
+        {
+            $this->load->view('admin_header');    
+            $this->load->view('admin_newpost');    
+            $this->load->view('admin_footer');
+        }
+        else
+        {
+            redirect('login');
+        }
+    }
+    
+    function editpost()
+    {    
+        if (isset($this->session->userdata['user']))
+        {
+            $this->load->view('admin_header');    
+            $this->load->view('admin_posts');    
+            $this->load->view('admin_footer');
+        }
+        else
+        {
+            redirect('login');
+        }
+    }
+    
     function manage_clients()
     {    
         if (isset($this->session->userdata['nom']))

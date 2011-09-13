@@ -29,9 +29,9 @@
 
                     <nav class="global">
                         <ul class="clearfix">
-                            <li class="active"><a class="nav-icon icon-house" href="/admin/">Overview</a></li>
+                            <li><a class="nav-icon icon-house" href="/admin/">Overview</a></li>
                             <li><a class="nav-icon icon-time" href="/admin/posts/">Posts</a></li>
-                            <li><a class="nav-icon icon-note" href="/admin/newpost/">New Post</a></li>
+                            <li class="active"><a class="nav-icon icon-note" href="/admin/newpost/">New Post</a></li>
                         </ul>
                     </nav>                    
                 </aside>
@@ -46,14 +46,14 @@
                     <div class="main-content">
                         <header>                            
                             <h2>
-                                Welcome to MyCMS!
+                                Add new post
                             </h2>
                         </header>
                         <section class="container_6 clearfix">
                             <div class="grid_6">
                                 <div class="message info ac">
                                     <h3>Get started: <a href="#">Add contacts to your account</a></h3>
-                                    <p>Mettre google analytics ici !. ou autres systèmes semblabes</p>
+                                    <p>Mettre google analytics ici !. ou autres systÃ¨mes semblabes</p>
                                 </div>
                             </div>
 

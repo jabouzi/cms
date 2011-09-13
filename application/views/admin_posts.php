@@ -30,7 +30,8 @@
                     <nav class="global">
                         <ul class="clearfix">
                             <li><a class="nav-icon icon-house" href="/admin/">Overview</a></li>
-                            <li class="active"><a class="nav-icon icon-time" href="/admin/posts/">Posts</a></li>                            
+                            <li class="active"><a class="nav-icon icon-time" href="/admin/posts/">Posts</a></li>
+                            <li><a class="nav-icon icon-note" href="/admin/newpost/">New Post</a></li>                       
                         </ul>
                     </nav>                    
                 </aside>
