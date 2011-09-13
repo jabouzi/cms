@@ -56,9 +56,14 @@
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
                                 </p>
                                 <form id="form" class="form grid_6">
+                                    <label>Timezone<small>Your timezone</small></label><select><option>America/Los Angeles</option><option>America/New York</option><option>Asia/Manila</option></select>
                                     <label>Title <em>*</em><small>Enter post title</small></label><input type="text" name="name" required="required" />
                                     <br />
                                     <label>Post <em>*</em><small>Enter post content</small></label><textarea id="newpost" name="newpost" required="required" ></textarea>
+                                    <div class="action">
+                                        <button class="button button-gray" type="submit"><span class="accept"></span>OK</button>
+                                        <button class="button button-gray" type="reset">Reset</button>
+                                    </div>
                                 </form>
                                 
                             </div>

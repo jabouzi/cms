@@ -37,6 +37,18 @@
         });
     });
 
+    var triggers = $(".modalInput").overlay({
+
+        // some mask tweaks suitable for modal dialogs
+        mask: {
+            color: '#ebecff',
+            loadSpeed: 200,
+            opacity: 0.7
+        },
+
+        closeOnClick: false
+    });
+
     $("#prompt form").submit(function(e) {
 
         // close the overlay
