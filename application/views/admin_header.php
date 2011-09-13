@@ -30,12 +30,27 @@
         <script type="text/javascript" src="<?=$js?>"></script>
     <?endforeach?>
     <script type="text/javascript">
-      $(document).ready(function() {
+    $(document).ready(function() {
         $("#newpost").cleditor({
             width:        750,
             height:       400
         });
-      });
+    });
+
+    $("#prompt form").submit(function(e) {
+
+        // close the overlay
+        triggers.eq(2).overlay().close();
+
+        // get user input
+        var input = $("input", this).val();
+
+        // do something with the answer
+        if (input) triggers.eq(2).html(input);
+
+        // do not submit the form
+        return e.preventDefault();
+    });
     </script>
 <?endif?>
 

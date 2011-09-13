@@ -49,36 +49,18 @@
                                 Add new post
                             </h2>
                         </header>
-                        <section class="container_6 clearfix">
-                            <div class="grid_6">
-                                <div class="message info ac">
-                                    <h3>Get started: <a href="#">Add contacts to your account</a></h3>
-                                    <p>Mettre google analytics ici !. ou autres systèmes semblabes</p>
-                                </div>
-                            </div>
-
-                            <hgroup class="grid_6 ac">
-                                <h2>Sed magna enim, tempus eu rutrum ornare.</h2>
-                                <h4>Donec suscipit fermentum turpis, a feugiat felis tincidunt eu</h4>
-                            </hgroup>
+                        <section class="container_6 clearfix">                            
                           
                             <div class="other-options grid_6">
-                                <textarea id="newpost" name="newpost"></textarea>
-                                <h3 class="other">Other things to do...</h3>
-                                <ul>
-                                    <li>
-                                        <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                        <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                    </li>
-                                    <li>
-                                        <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                        <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                    </li>
-                                    <li>
-                                        <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                        <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                    </li>
-                                </ul>
+                                <p>
+                                    <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
+                                </p>
+                                <form id="form" class="form grid_6">
+                                    <label>Title <em>*</em><small>Enter post title</small></label><input type="text" name="name" required="required" />
+                                    <br />
+                                    <label>Post <em>*</em><small>Enter post content</small></label><textarea id="newpost" name="newpost" required="required" ></textarea>
+                                </form>
+                                
                             </div>
                         </section>
                     </div>
