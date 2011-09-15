@@ -4,17 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Streamlined - Contact Management/CRM Template</title>
 
-<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/reset.css" />
-<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/grid.css" />
-<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/style.css" />
-<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/messages.css" />
-<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/forms.css" />
 
 <?if (isset($stylesheet)):?>
     <?foreach ($stylesheet as $css):?>
         <link rel="stylesheet" media="screen" href="<?=$css?>" />
     <?endforeach?>
 <?endif?>
+
+<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/reset.css" />
+<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/grid.css" />
+<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/style.css" />
+<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/messages.css" />
+<link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/forms.css" />
 
 <!--[if lt IE 8]>
 <link rel="stylesheet" media="screen" href="<?=base_url()?>public/css/ie.css" />
@@ -28,16 +29,23 @@
 <?if (isset($javascript)):?>
     <?foreach ($javascript as $js):?>
         <script type="text/javascript" src="<?=$js?>"></script>
-    <?endforeach?>
+    <?endforeach?> 
     <script type="text/javascript">
     $(document).ready(function() {
         $("#newpost").cleditor({
             width:        750,
             height:       400
         });
-    });
-
-    var triggers = $(".modalInput").overlay({
+        
+        /*var opts = {
+            cssClass : 'el-rte',
+            width   : 750,
+            height   : 400,           
+            cssfiles : ['css/elrte-inner.css']
+        }
+        $('#newpost').elrte(opts);*/
+        
+        var triggers = $(".modalInput").overlay({
 
         // some mask tweaks suitable for modal dialogs
         mask: {
@@ -47,22 +55,23 @@
         },
 
         closeOnClick: false
-    });
+        });
 
-    $("#prompt form").submit(function(e) {
+        $("#prompt form").submit(function(e) {
 
-        // close the overlay
-        triggers.eq(2).overlay().close();
+            // close the overlay
+            triggers.eq(2).overlay().close();
 
-        // get user input
-        var input = $("input", this).val();
+            // get user input
+            var input = $("input", this).val();
 
-        // do something with the answer
-        if (input) triggers.eq(2).html(input);
+            // do something with the answer
+            if (input) triggers.eq(2).html(input);
 
-        // do not submit the form
-        return e.preventDefault();
-    });
+            // do not submit the form
+            return e.preventDefault();
+        });
+    });    
     </script>
 <?endif?>
 

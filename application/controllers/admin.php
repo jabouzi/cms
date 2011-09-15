@@ -43,8 +43,12 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
+            /*$js[] = base_url()."public/elrte/js/elrte.min.js";
+            $css[] = base_url()."public/elrte/css/elrte.min.css";*/
+            
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
             $css[] = base_url()."public/cleeditor/jquery.cleditor.css";
+            
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
             $this->load->view('admin_header',$data);    
