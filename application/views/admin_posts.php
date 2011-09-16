@@ -127,7 +127,7 @@
                             <p>This is the preview pane. Click on the more button on an item to view more information.</p>
                             <div class="message info">
                                 <h3>Helpful Tips</h3>
-                                <img src="images/lightbulb_32.png" class="fl" />
+                                <img src="<?=base_url()?>public/images/lightbulb_32.png" class="fl" />
                                 <p>Phasellus at sapien eget sapien mattis porttitor. Donec ultricies turpis pulvinar enim convallis egestas. Pellentesque egestas luctus mattis. Nulla eu risus massa, nec blandit lectus. Aliquam vel augue eget ante dapibus rhoncus ac quis risus.</p>
                             </div>
                         </div>

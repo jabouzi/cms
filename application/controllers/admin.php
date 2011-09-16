@@ -21,7 +21,7 @@ class Admin extends CI_Controller
         }
         else
         {
-            redirect('login');
+            redirect('login/');
         }
     }
     
@@ -35,7 +35,7 @@ class Admin extends CI_Controller
         }
         else
         {
-            redirect('login');
+            redirect('login/');
         }
     }
     
@@ -43,12 +43,8 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
-            /*$js[] = base_url()."public/elrte/js/elrte.min.js";
-            $css[] = base_url()."public/elrte/css/elrte.min.css";*/
-            
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
-            $css[] = base_url()."public/cleeditor/jquery.cleditor.css";
-            
+            $css[] = base_url()."public/cleeditor/jquery.cleditor.css";            
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
             $this->load->view('admin_header',$data);    
@@ -57,21 +53,29 @@ class Admin extends CI_Controller
         }
         else
         {
-            redirect('login');
+            redirect('login/');
         }
     }
     
-    function editpost()
+    function editpost($post_id)
     {    
         if (isset($this->session->userdata['user']))
         {
-            $this->load->view('admin_header');    
-            $this->load->view('admin_posts');    
+            if (empty($post_id))
+            {
+                redirect('admin/newpost/');
+            }
+            $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
+            $css[] = base_url()."public/cleeditor/jquery.cleditor.css";
+            $data['javascript'] = $js;
+            $data['stylesheet'] = $css;
+            $this->load->view('admin_header',$data);  
+            $this->load->view('admin_editpost');    
             $this->load->view('admin_footer');
         }
         else
         {
-            redirect('login');
+            redirect('login/');
         }
     }
     

@@ -267,6 +267,9 @@ a.button.no-text {
 .button span.view-grid {
     background: transparent url(../images/icons/application_view_tile.png) no-repeat center center;
 }
+.button span.cancel {
+    background: transparent url(../images/icons/cancel.png) no-repeat center center;
+}
 
 /**
  * Pagination
@@ -785,6 +788,48 @@ fieldset legend {
     margin:2px 0 20px 10px;
     clear: right;
     width: 250px;
+}
+
+.form2 label {
+    display: block;
+    font-size: 12px;
+    float: left;
+    font-weight: bold;
+    margin: 0;
+    width: 160px;
+    clear: left;
+}
+
+.form2 label small {
+    color:#666666;
+    display:block;
+    font-size:11px;
+    font-weight:normal;
+    line-height: 11px;
+    width:160px;
+}
+
+.form2 .action {
+    clear: left;
+}
+
+.form2 input, .form2 select {
+    float: left;
+    margin:2px 0 20px 10px;
+    clear: right;
+    width: 250px;
+}
+
+.clear1 {
+    margin-bottom:15px;
+}
+
+.clear2 {
+    margin-bottom:130px;
+}
+
+.clear3{
+    margin-bottom:5px;
 }
 
 label em {
