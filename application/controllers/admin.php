@@ -15,7 +15,11 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
+            $active = array('active','','','');
+            $data['active'] = $active;
             $this->load->view('admin_header');    
+            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_leftmenu',$data);    
             $this->load->view('admin_dashboard');    
             $this->load->view('admin_footer');
         }
@@ -29,7 +33,11 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
+            $active = array('','active','','');
+            $data['active'] = $active;
             $this->load->view('admin_header');    
+            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_leftmenu',$data);    
             $this->load->view('admin_posts');    
             $this->load->view('admin_footer');
         }
@@ -43,11 +51,15 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
+            $active = array('','','','active');
+            $data['active'] = $active;
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
             $css[] = base_url()."public/cleeditor/jquery.cleditor.css";            
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
             $this->load->view('admin_header',$data);    
+            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_leftmenu',$data);
             $this->load->view('admin_newpost');    
             $this->load->view('admin_footer');
         }
@@ -65,12 +77,34 @@ class Admin extends CI_Controller
             {
                 redirect('admin/newpost/');
             }
+            $active = array('','','','');
+            $data['active'] = $active;
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
             $css[] = base_url()."public/cleeditor/jquery.cleditor.css";
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
             $this->load->view('admin_header',$data);  
+            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_leftmenu',$data);
             $this->load->view('admin_editpost');    
+            $this->load->view('admin_footer');
+        }
+        else
+        {
+            redirect('login/');
+        }
+    }
+    
+    function comments()
+    {    
+        if (isset($this->session->userdata['user']))
+        {
+            $active = array('','','active','');
+            $data['active'] = $active;
+            $this->load->view('admin_header');    
+            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_leftmenu',$data);
+            $this->load->view('admin_comments');    
             $this->load->view('admin_footer');
         }
         else

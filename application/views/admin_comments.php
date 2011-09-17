@@ -3,68 +3,60 @@
                 <section class="main-section grid_7">
 
                     <div class="main-content grid_4 alpha">
-                        <header>                           
-                            <h2>
-                                Latest Activity
-                            </h2>
+                        <header>
+                            <ul class="action-buttons clearfix fr">
+                                <li><a href="#" class="button button-gray no-text current" title="View as a List" onclick="$(this).addClass('current').parent().siblings().find('a').removeClass('current');$('#contacts').removeClass('grid-view').addClass('list-view');return false;"><span class="view-list"></span></a></li>
+                                <li><a href="#" class="button button-gray no-text" title="View as a Grid" onclick="$(this).addClass('current').parent().siblings().find('a').removeClass('current');$('#contacts').removeClass('list-view').addClass('grid-view');return false;"><span class="view-grid"></span></a></li>
+                                <li><a href="documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
+                            </ul>
+                            <div class="view-switcher">
+                                <h2>All People &amp; Companies <a href="#">&darr;</a></h2>
+                                <ul>
+                                    <li><a href="#">All People</a></li>
+                                    <li><a href="#">All Companies</a></li>
+                                    <li><a href="#">All People &amp; Companies</a></li>
+                                    <li class="separator"></li>
+                                    <li>Recently viewed...</li>
+                                    <li class="separator"></li>
+                                    <li><a href="#">Contacts</a></li>
+                                    <li><a href="#">Companies</a></li>
+                                </ul>
+                            </div>
                         </header>
                         <section>
-                            <ul class="listing list-view">
-                                <li class="note">
+                            <ul id="contacts" class="listing list-view clearfix">
+                                <li class="contact clearfix">
+                                    <div class="avatar"><img src="<?=base_url()?>public/images/user_32.png" /></div>
                                     <a class="more" href="janeroe.html">&raquo;</a>
                                     <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">Jane Roe</a>
-                                    <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
-                                    <div class="entry-meta">
-                                        Posted by Administrator
-                                    </div>
-                                </li>
-                                <li class="note">
-                                    <a class="more" href="johndoe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">John Doe</a>
-                                    <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
-                                    <div class="entry-meta">
-                                        Posted by Administrator
-                                    </div>
-                                </li>
-                                <li class="note">
-                                    <a class="more" href="johndoe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">John Doe</a>
-                                    <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
-                                    <div class="entry-meta">
-                                        Posted by Administrator
-                                    </div>
-                                </li>
-                                <li class="contact">
-                                    <a class="more" href="janeroe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">Jane Roe</a>
+                                    <a href="#" class="name">Jane Roe</a>
                                     <div class="entry-meta">
                                         Contact added by Administrator
                                     </div>
                                 </li>
-                                <li class="company">
+                                <li class="company clearfix">
+                                    <div class="avatar"><img src="<?=base_url()?>public/images/users_business_32.png" /></div>
                                     <a class="more" href="othercompany.html">&raquo;</a>
                                     <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">Other Company Inc.</a>
+                                    <a href="#" class="name">Other Company Inc.</a>
                                     <div class="entry-meta">
                                         Company added by Administrator
                                     </div>
                                 </li>
-                                <li class="contact">
+                                <li class="contact clearfix">
+                                    <div class="avatar"><img src="<?=base_url()?>public/images/user_32.png" /></div>
                                     <a class="more" href="johndoe.html">&raquo;</a>
                                     <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">John Doe</a>
+                                    <a href="#" class="name">John Doe</a>
                                     <div class="entry-meta">
                                         Contact added by Administrator
                                     </div>
                                 </li>
-                                <li class="company">
+                                <li class="company clearfix">
+                                    <div class="avatar"><img src="<?=base_url()?>public/images/users_business_32.png" /></div>
                                     <a class="more" href="somecompany.html">&raquo;</a>
                                     <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">Some Company LTD</a>
+                                    <a href="#" class="name">Some Company LTD</a>
                                     <div class="entry-meta">
                                         Company added by Administrator
                                     </div>
