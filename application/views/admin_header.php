@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Streamlined - Contact Management/CRM Template</title>
+<title>MyCMS - Admin</title>
 
 
 <?if (isset($stylesheet)):?>
