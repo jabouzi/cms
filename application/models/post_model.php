@@ -23,7 +23,7 @@ class Post_model extends CI_Model
     
     public function get_posts_infos($id)
     {
-        $this->db->select('post_id','post_title');
+        $this->db->select('post_id','post_title','post_date','post_comment_count');
         $this->db->where('post_id',$id);
         return $this->db->get('cms_posts')->result();
     }
