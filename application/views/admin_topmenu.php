@@ -9,7 +9,7 @@
                         <li><a href="#">Profile</a></li>
                         <li class="fr"><a href="#"><?=$user_name?><span class="arrow-down"></span></a>
                             <ul>                                
-                                <li><a href="/login/logout">Sign out</a></li>
+                                <li><a href="/login/logout/">Sign out</a></li>
                             </ul>
                         </li>
                     </ul>
