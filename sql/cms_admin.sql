@@ -91,3 +91,19 @@ CREATE TABLE IF NOT EXISTS `cms_posts_tags` (
   `post_tag_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',    
   PRIMARY KEY (`post_tag_id`)  
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cms_posts_comments`
+--
+
+DROP TABLE IF EXISTS `cms_posts_comments`;
+CREATE TABLE IF NOT EXISTS `cms_posts_comments` (
+  `post_comment_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `post_comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_comment_approved` tinyint(1) NOT NULL DEFAULT 0,    
+  PRIMARY KEY (`post_comment_id`)  
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
