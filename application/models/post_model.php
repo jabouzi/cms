@@ -4,99 +4,79 @@ class Admin_model extends CI_Model
 {
     public function get_all()
     {
-        $data = $this->db->get('cms_users');
+        $data = $this->db->get('cms_posts');
+        return $data->result();
+    }
+    
+    public function get_all_active()
+    {
+        $this->db->where('post_status','publish');
+        $data = $this->db->get('cms_posts');
         return $data->result();
     }    
     
-    public function get_id($email)
+    public function get_post($id)
     {        
-        $this->db->select('user_id');
-        $this->db->where('user_email',$email);
-        $data = $this->db->get('cms_users')->result();
-        if (count($data)) return $data[0]->id;
-        else return false;
+        $this->db->where('post_id',$id);
+        return $this->db->get('cms_posts')->result();
     }
     
-    public function get_type($email)
-    {        
-        $this->db->select('user_type');
-        $this->db->where('user_email',$email);
-        return $this->db->get('cms_users')->result();
-    }
-    
-    public function get_province($email)
-    {        
-        $this->db->select('user_province');
-        $this->db->where('user_email',$email);
-        $data = $this->db->get('cms_users');
-        return $data->result();
-    }
-    
-    public function get_name($email)
+    public function get_posts_infos($id)
     {
-        $this->db->select('user_family_name');
-        $this->db->select('user_first_name');
-        $this->db->where('user_email',$email);
-        $data = $this->db->get('cms_users');
-        return $data->result();
+        $this->db->select('post_id','post_title');
+        $this->db->where('post_id',$id);
+        return $this->db->get('cms_posts')->result();
+    }
+
+    public function order_page($limit,$offset,$order_by, $type)
+    {
+        $this->db->order_by($order_by, $type);
+        $orders = $this->db->get('cms_posts',$limit,$offset);
+        return $orders->result();
     }
     
-    public function get_user_infos($id)
+    public function add_post($data)
     {
-        $this->db->where('user_id',$id);
-        $data = $this->db->get('cms_users');
-        return $data->result();
-    }
-    
-    public function check_login($username, $password)
-    {
-        $this->db->select('user_password');
-        $this->db->where('user_email',$username);
-        $data = $this->db->get('cms_users');
-        return $data->result();
-    }
-    
-    public function add_user($data)
-    {
-        $this->db->insert('cms_users', array(            
-            'user_family_name' => $data['family_name'], 
-            'user_first_name' => $data['first_name'], 
-            'user_address' => $data['address'], 
-            'user_town' => $data['town'], 
-            'user_postal_code' => $data['postal_code'], 
-            'user_phone' => $data['phone'], 
-            'user_email' => $data['email'], 
-            'user_password' => $data['password'], 
-            'user_active' => $data['active'], 
-            'user_type' => $data['type'],
-            //'user_date_created' => date('Y-m-d H:i:s'),
+        $this->db->insert('cms_posts', array(
+            'post_author' => $data['post_author'], 
+            'post_date' => $data['post_date'], 
+            'post_content' => $data['post_content'], 
+            'post_title' => $data['post_title'], 
+            'post_status' => $data['post_status'], 
+            'post_comment_status' => $data['post_comment_status'], 
+            'post_name' => $data['post_name'], 
+            'post_modified' => $data['post_modified'], 
+            'post_type' => $data['post_type'], 
+            'post_comment_count' => $data['post_comment_count'], 
+            'post_view_count' => $data['post_view_count'], 
+            'post_custom_url' => $data['post_custom_url'], 
         ));      
 
         return $this->db->insert_id();
     }
     
-    public function delete_user($id)
+    public function delete_post($id)
     {
-        $this->db->where('user_id',$id);
-        $this->db->delete('cms_users');
+        $this->db->where('post_id',$id);
+        $this->db->delete('cms_posts');
     }
     
-    public function update_user($id, $data)
+    public function update_post($id, $data)
     {
-        $this->db->where('user_id',$id);     
-        $this->db->update('cms_users',array(            
-            'user_family_name' => $data['family_name'], 
-            'user_first_name' => $data['first_name'], 
-            'user_address' => $data['address'], 
-            'user_town' => $data['town'], 
-            'user_postal_code' => $data['postal_code'], 
-            'user_phone' => $data['phone'], 
-            'user_email' => $data['email'], 
-            'user_password' => $data['password'], 
-            'user_active' => $data['active'], 
-            'user_type' => $data['type'],
-            //'date_modif' => date('Y-m-d H:i:s'), 
-        ));   
-       
+        $this->db->where('post_id',$id);     
+        $this->db->update('cms_posts',array(            
+            'post_author' => $data['post_author'], 
+            'post_date' => $data['post_date'], 
+            'post_content' => $data['post_content'], 
+            'post_title' => $data['post_title'], 
+            'post_status' => $data['post_status'], 
+            'post_comment_status' => $data['post_comment_status'], 
+            'post_name' => $data['post_name'], 
+            'post_modified' => $data['post_modified'], 
+            'post_type' => $data['post_type'], 
+            'post_comment_count' => $data['post_comment_count'], 
+            'post_view_count' => $data['post_view_count'], 
+            'post_custom_url' => $data['post_custom_url'],  
+        ));       
     }
 }

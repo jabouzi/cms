@@ -7,7 +7,7 @@ class Login extends CI_Controller
     function __construct() 
     {
         parent::__construct();
-        $this->load->model('admin_model');
+        $this->load->model('user_model');
         $this->load->library('class_decrypt');
     }    
     
@@ -30,7 +30,7 @@ class Login extends CI_Controller
         if (empty($this->errors))
         {
             $data['user'] = $_POST['username'];
-            $user = $this->admin_model->get_name($_POST['username']);
+            $user = $this->user_model->get_name($_POST['username']);
             $this->session->set_userdata('name',$user[0]->user_first_name.' '.$user[0]->user_family_name);     
             $this->session->set_userdata($data);
                 
@@ -51,7 +51,7 @@ class Login extends CI_Controller
     
     private function user_login_valid($username,$password)
     {
-        $userpassword = $this->admin_model->check_login($username,$password);
+        $userpassword = $this->user_model->check_login($username,$password);
         $array2 = class_decrypt::keycalc('skanderjabouzi.com');
         $array = class_decrypt::stringtoarray($userpassword[0]->user_password);
         if ($password == class_decrypt::transformstring($array, $array2))
