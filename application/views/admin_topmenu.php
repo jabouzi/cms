@@ -7,7 +7,7 @@
                     <ul class="clearfix">                        
                         <li class="active"><a href="/admin/">Dashboard</a></li>
                         <li><a href="#">Profile</a></li>
-                        <li class="fr"><a href="#">administrator<span class="arrow-down"></span></a>
+                        <li class="fr"><a href="#"><?=$user_name?><span class="arrow-down"></span></a>
                             <ul>                                
                                 <li><a href="/login/logout">Sign out</a></li>
                             </ul>

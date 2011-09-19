@@ -10,7 +10,7 @@
                                 <li><a href="documentation/index.html" class="button button-gray no-text help" rel="#overlay"><span class="help"></span></a></li>
                             </ul>
                             <div class="view-switcher">
-                                <h2>All People &amp; Companies <a href="#">&darr;</a></h2>
+                                <h2>Posts comments <a href="#">&darr;</a></h2>
                                 <ul>
                                     <li><a href="#">All People</a></li>
                                     <li><a href="#">All Companies</a></li>

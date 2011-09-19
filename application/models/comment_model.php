@@ -1,6 +1,6 @@
 <?php
 
-class Commwent_model extends CI_Model 
+class Comment_model extends CI_Model 
 {
     public function get_all()
     {

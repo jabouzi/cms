@@ -5,7 +5,7 @@
                     <div class="main-content grid_4 alpha">
                         <header>                           
                             <h2>
-                                Latest Activity
+                                My Posts
                             </h2>
                         </header>
                         <section>

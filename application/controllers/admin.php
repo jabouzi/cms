@@ -1,5 +1,6 @@
 <?php
-
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 class Admin extends CI_Controller
 {
     private $errors = array();
@@ -9,6 +10,7 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('post_model');
+        $this->load->model('comment_model');
         $this->load->library('class_decrypt');
     }    
     
@@ -18,8 +20,9 @@ class Admin extends CI_Controller
         {
             $active = array('active','','','');
             $data['active'] = $active;
+            $header_data['user_name'] = $this->session->userdata['name'];
             $this->load->view('admin_header');    
-            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_topmenu',$header_data);    
             $this->load->view('admin_leftmenu',$data);    
             $this->load->view('admin_dashboard');    
             $this->load->view('admin_footer');
@@ -36,8 +39,9 @@ class Admin extends CI_Controller
         {
             $active = array('','active','','');
             $data['active'] = $active;
+            $header_data['user_name'] = $this->session->userdata['name'];
             $this->load->view('admin_header');    
-            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_topmenu',$header_data);      
             $this->load->view('admin_leftmenu',$data);    
             $this->load->view('admin_posts');    
             $this->load->view('admin_footer');
@@ -54,12 +58,13 @@ class Admin extends CI_Controller
         {
             $active = array('','','','active');
             $data['active'] = $active;
+            $header_data['user_name'] = $this->session->userdata['name'];
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
             $css[] = base_url()."public/cleeditor/jquery.cleditor.css";            
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
             $this->load->view('admin_header',$data);    
-            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_topmenu',$header_data);        
             $this->load->view('admin_leftmenu',$data);
             $this->load->view('admin_newpost');    
             $this->load->view('admin_footer');
@@ -80,12 +85,13 @@ class Admin extends CI_Controller
             }
             $active = array('','','','');
             $data['active'] = $active;
+            $header_data['user_name'] = $this->session->userdata['name'];
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
             $css[] = base_url()."public/cleeditor/jquery.cleditor.css";
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
             $this->load->view('admin_header',$data);  
-            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_topmenu',$header_data);        
             $this->load->view('admin_leftmenu',$data);
             $this->load->view('admin_editpost');    
             $this->load->view('admin_footer');
@@ -102,8 +108,9 @@ class Admin extends CI_Controller
         {
             $active = array('','','active','');
             $data['active'] = $active;
+            $header_data['user_name'] = $this->session->userdata['name'];
             $this->load->view('admin_header');    
-            $this->load->view('admin_topmenu');    
+            $this->load->view('admin_topmenu',$header_data);    
             $this->load->view('admin_leftmenu',$data);
             $this->load->view('admin_comments');    
             $this->load->view('admin_footer');
