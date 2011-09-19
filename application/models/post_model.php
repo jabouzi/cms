@@ -7,6 +7,11 @@ class Post_model extends CI_Model
         $data = $this->db->get('cms_posts');
         return $data->result();
     }
+
+    public function count()
+    {     
+        return $this->db->count_all('cms_posts');
+    }
     
     public function get_all_active()
     {
@@ -21,18 +26,25 @@ class Post_model extends CI_Model
         return $this->db->get('cms_posts')->result();
     }
     
-    public function get_posts_infos($id)
+    public function get_posts_infos()
     {
-        $this->db->select('post_id','post_title','post_date','post_comment_count');
-        $this->db->where('post_id',$id);
-        return $this->db->get('cms_posts')->result();
+        $this->db->select('post_id,post_title,post_date,post_comment_count');
+        $posts = $this->db->get('cms_posts');
+        return $posts->result();
+    }
+    
+    public function get_posts_infos_page($limit,$offset,$order_by,$type)
+    {
+        $this->db->select('post_id,post_title,post_date,post_comment_count');
+        $this->db->order_by($order_by, $type);
+        return $this->db->get('cms_posts',$limit,$offset)->result();
     }
 
-    public function order_page($limit,$offset,$order_by, $type)
+    public function posts_page($limit,$offset,$order_by, $type)
     {
         $this->db->order_by($order_by, $type);
-        $orders = $this->db->get('cms_posts',$limit,$offset);
-        return $orders->result();
+        $posts = $this->db->get('cms_posts',$limit,$offset);
+        return $posts->result();
     }
     
     public function add_post($data)

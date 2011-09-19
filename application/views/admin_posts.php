@@ -10,65 +10,15 @@
                         </header>
                         <section>
                             <ul class="listing list-view">
+                                <?foreach($posts as $post):?>
                                 <li class="note">
-                                    <a class="more" href="janeroe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">Jane Roe</a>
-                                    <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
+                                    <span class="timestamp"><?=$post->post_date?></span>
+                                    <a href="#"><?=$post->post_title?></a>                                    
                                     <div class="entry-meta">
-                                        Posted by Administrator
+                                        <p>Comments(<?=$post->post_comment_count?>)</p>
                                     </div>
                                 </li>
-                                <li class="note">
-                                    <a class="more" href="johndoe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">John Doe</a>
-                                    <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
-                                    <div class="entry-meta">
-                                        Posted by Administrator
-                                    </div>
-                                </li>
-                                <li class="note">
-                                    <a class="more" href="johndoe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">John Doe</a>
-                                    <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh.</p>
-                                    <div class="entry-meta">
-                                        Posted by Administrator
-                                    </div>
-                                </li>
-                                <li class="contact">
-                                    <a class="more" href="janeroe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">Jane Roe</a>
-                                    <div class="entry-meta">
-                                        Contact added by Administrator
-                                    </div>
-                                </li>
-                                <li class="company">
-                                    <a class="more" href="othercompany.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">Other Company Inc.</a>
-                                    <div class="entry-meta">
-                                        Company added by Administrator
-                                    </div>
-                                </li>
-                                <li class="contact">
-                                    <a class="more" href="johndoe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">John Doe</a>
-                                    <div class="entry-meta">
-                                        Contact added by Administrator
-                                    </div>
-                                </li>
-                                <li class="company">
-                                    <a class="more" href="somecompany.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#">Some Company LTD</a>
-                                    <div class="entry-meta">
-                                        Company added by Administrator
-                                    </div>
-                                </li>
+                                <?endforeach?>                           
                             </ul>
                             <ul class="pagination clearfix">
                                 <li><a href="#" class="button-blue">&laquo;</a></li>

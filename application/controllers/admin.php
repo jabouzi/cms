@@ -40,10 +40,11 @@ class Admin extends CI_Controller
             $active = array('','active','','');
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
+            $post_data['posts'] = $this->post_model->get_posts_infos();
             $this->load->view('admin_header');    
             $this->load->view('admin_topmenu',$header_data);      
             $this->load->view('admin_leftmenu',$data);    
-            $this->load->view('admin_posts');    
+            $this->load->view('admin_posts',$post_data);    
             $this->load->view('admin_footer');
         }
         else

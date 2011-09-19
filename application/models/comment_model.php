@@ -7,6 +7,11 @@ class Comment_model extends CI_Model
         $data = $this->db->get('cms_comments');
         return $data->result();
     }
+
+    public function count()
+    {     
+        return $this->db->count_all('cms_comments');
+    }
     
     public function get_all_active()
     {
@@ -25,9 +30,9 @@ class Comment_model extends CI_Model
     {        
         $this->db->where('post_id',$id);
         return $this->db->get('cms_comments')->result();
-    }    
+    }
 
-    public function order_page($limit,$offset,$order_by, $type)
+    public function comments_page($limit,$offset,$order_by, $type)
     {
         $this->db->order_by($order_by, $type);
         $orders = $this->db->get('cms_comments',$limit,$offset);
