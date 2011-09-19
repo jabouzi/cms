@@ -1016,6 +1016,15 @@ body.login {
 .icon-time {
     background-image: url(../images/icons/time.png) !important;
 }
+.icon-comment {
+    background-image: url(../images/icons/comments.png) !important;
+}
+.icon-post {
+    background-image: url(../images/icons/report.png) !important;
+}
+.icon-new-post {
+    background-image: url(../images/icons/page.png) !important;
+}
 
 /**
  * Footer

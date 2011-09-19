@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `cms_posts` (
   `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',  
   `post_type` varchar(20) NOT NULL DEFAULT 'post',
   `post_comment_count` bigint(20) NOT NULL DEFAULT '0',
+  `post_view_count` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`post_id`)  
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
