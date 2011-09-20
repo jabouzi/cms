@@ -14,6 +14,11 @@
                                 <p id="error_message">                                    
                                 </p>
                             </div>
+                            <div class="message success" style="display:none">
+                                <h3>Success!</h3>
+                                <p id="success_message">                                    
+                                </p>
+                            </div>
                             <div class="grid_6">
                                 <p>
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
@@ -23,7 +28,7 @@
                                    <label>Title <em>*</em><small>Edit post title</small></label><input type="text" id="post_title" name="post_title" required="required" />
                                     <label>Url <em>*</em><small>Edit post url</small></label><input type="text" id="post_url" name="post_url" required="required" />
                                     <div class="clear1"></div>
-                                    <label>Post <em>*</em><small>Edit post content</small></label>
+                                    <label>Content <em>*</em><small>Edit post content</small></label>
                                     <div class="clear2"></div>
                                     <textarea id="post_content" name="post_content" required="required" ></textarea>
                                     <div class="clear3"></div>

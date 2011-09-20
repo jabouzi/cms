@@ -68,7 +68,6 @@ CREATE TABLE IF NOT EXISTS `cms_posts` (
 INSERT INTO cms_posts VALUES('','1','2011-01-01 10:00:00','Kio trafe kvanto frakcistreko o. Sen ki povi fore subpropozicio, konateco helposigno fundamenta ed ene. Op tipo diesa kasedo ido, ng ind kibi rilativa. Eca devi kibi nuancilo ge, jeno fini termo uk eca. Ena neigi respondo ut. Oj pro tiudirekten multiplikite, ac ian alial liternomo mikrometro. <br /><br />Vo enz supre nedifina malsupera, nv alia responde suprenstreko ali. Tek definitive anstataŭi tiudirekten ge, ebl ki vole mekao nomial. Kialo pleja koruso sen ni, o sekve koreo mallongigo hav. Eksterna tripunkto antaŭparto pli os, tago hieraŭa elnombrado ot jes.','First Test Post','publish','open','','0000-00-00 00:00:00','post','2','2','first-post');
 INSERT INTO cms_posts VALUES('','1','2011-03-05 20:00:00','Nal felmë onóro laurëa up, tixë halya ya nac. Celë venessë epë na, ep qua pitya etéraettul, ëa tólë enyárë taniquelassë oli. At enga telco wilwarin mól, to taima artuilë pereldar rip. Fánë méla lá táp. Engë lingwë carcassë cu wén, cala ninwa mírëa cua et.','2nd Test Post','publish','open','','0000-00-00 00:00:00','post','1','3','second-post');
 
-
 -- --------------------------------------------------------
 
 --
@@ -86,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `cms_tags` (
 
 INSERT INTO cms_tags VALUES('','Test TAG1','2011-01-01 10:00:00','0000-00-00 00:00:00');
 INSERT INTO cms_tags VALUES('','Test TAG2','2011-02-02 22:00:00','0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +106,7 @@ INSERT INTO cms_posts_tags VALUES('','8','8','2011-01-01 10:00:00','0000-00-00 0
 INSERT INTO cms_posts_tags VALUES('','8','9','2011-01-01 10:00:00','0000-00-00 00:00:00');
 INSERT INTO cms_posts_tags VALUES('','9','8','2011-01-01 10:00:00','0000-00-00 00:00:00');
 INSERT INTO cms_posts_tags VALUES('','9','8','2011-01-01 10:00:00','0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --

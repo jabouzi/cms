@@ -15,16 +15,21 @@
                                 <p id="error_message">                                    
                                 </p>
                             </div>
+                            <div class="message success" style="display:none">
+                                <h3>Success!</h3>
+                                <p id="success_message">                                    
+                                </p>
+                            </div>
                             <div class="grid_6">
                                 <p>
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
                                 </p>
-                                <form id="form" class="form grid_6">
-                                    <label>Category<small>Edit category</small></label><select><option>America/Los Angeles</option><option>America/New York</option><option>Asia/Manila</option></select>
+                                <form id="form" class="form grid_6" method="post" action="/admin/create_post/">
+                                    <label>Category<small>Edit category</small></label><select id="post_category" name="post_category"><option>America/Los Angeles</option><option>America/New York</option><option>Asia/Manila</option></select>
                                     <label>Title <em>*</em><small>Enter post title</small></label><input type="text" id="post_title" name="post_title"/>
-                                    <label>Url <em>*</em><small>Enter post url</small></label><input type="text" id="post_url" name="post_url"/>
+                                    <label>Url <em></em><small>Enter post url</small></label><input type="text" id="post_url" name="post_url"/>
                                     <div class="clear1"></div>
-                                    <label>Post <em>*</em><small>Enter post content</small></label>
+                                    <label>Content <em>*</em><small>Enter post content</small></label>
                                     <div class="clear2"></div>
                                     <textarea id="post_content" name="post_content"></textarea>
                                     <div class="clear3"></div>
@@ -57,7 +62,7 @@
 
              <!-- input form. you can press enter too -->
              <form>
-                 <input type="text" id="post_category"/>
+                 <input type="text" id="post_new_category" name="post_new_category"/>
                  <hr />
                  <button class="button button-gray" type="submit">OK</button>
                  <button class="button button-gray close" type="button">Cancel</button>
