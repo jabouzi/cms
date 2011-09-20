@@ -9,18 +9,23 @@
                             </h2>
                         </header>
                         <section class="container_6 clearfix">                            
-                          
+                            <div class="message error" style="display:none">
+                                <h3>Error!</h3>
+                                <p id="error_message">                                    
+                                </p>
+                            </div>
                             <div class="grid_6">
                                 <p>
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
                                 </p>
-                                <form id="form" class="form2 grid_6">
-                                    <label>Timezone<small>Your timezone</small></label><select><option>America/Los Angeles</option><option>America/New York</option><option>Asia/Manila</option></select>
-                                    <label>Title <em>*</em><small>Enter post title</small></label><input type="text" name="name" required="required" />
+                                <form id="form" class="form grid_6">
+                                    <label>Category<small>Edit category</small></label><select><option>America/Los Angeles</option><option>America/New York</option><option>Asia/Manila</option></select>
+                                   <label>Title <em>*</em><small>Edit post title</small></label><input type="text" id="post_title" name="post_title" required="required" />
+                                    <label>Url <em>*</em><small>Edit post url</small></label><input type="text" id="post_url" name="post_url" required="required" />
                                     <div class="clear1"></div>
-                                    <label>Post <em>*</em><small>Enter post content</small></label>
+                                    <label>Post <em>*</em><small>Edit post content</small></label>
                                     <div class="clear2"></div>
-                                    <textarea id="newpost" name="newpost" required="required" ></textarea>
+                                    <textarea id="post_content" name="post_content" required="required" ></textarea>
                                     <div class="clear3"></div>
                                     <div class="action">
                                         <button class="button button-gray" type="submit"><span class="add"></span>Save</button>
@@ -51,7 +56,7 @@
 
              <!-- input form. you can press enter too -->
              <form>
-                 <input type="text" />
+                 <input type="text" id="post_category"/>
                  <hr />
                  <button class="button button-gray" type="submit">OK</button>
                  <button class="button button-gray close" type="button">Cancel</button>

@@ -37,6 +37,9 @@ CREATE TABLE IF NOT EXISTS `cms_users` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
 
 
+INSERT INTO cms_users VALUES('','Jabouzi','Skander','','','','','','jabouzi@gmail.com','b572c415c227b461f215a3',1 ,1 );
+INSERT INTO cms_users VALUES('','Administrator','','','','','','','skander@skanderjabouzi.com','b572c415c227b461f215a3',1 ,1 );
+
 -- --------------------------------------------------------
 
 --
@@ -57,8 +60,13 @@ CREATE TABLE IF NOT EXISTS `cms_posts` (
   `post_type` varchar(20) NOT NULL DEFAULT 'post',
   `post_comment_count` bigint(20) NOT NULL DEFAULT '0',
   `post_view_count` bigint(20) NOT NULL DEFAULT '0',
+  `post_custom_url` varchar(200) NOT NULL DEFAULT '',
   PRIMARY KEY (`post_id`)  
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+
+INSERT INTO cms_posts VALUES('','1','2011-01-01 10:00:00','Kio trafe kvanto frakcistreko o. Sen ki povi fore subpropozicio, konateco helposigno fundamenta ed ene. Op tipo diesa kasedo ido, ng ind kibi rilativa. Eca devi kibi nuancilo ge, jeno fini termo uk eca. Ena neigi respondo ut. Oj pro tiudirekten multiplikite, ac ian alial liternomo mikrometro. <br /><br />Vo enz supre nedifina malsupera, nv alia responde suprenstreko ali. Tek definitive anstataŭi tiudirekten ge, ebl ki vole mekao nomial. Kialo pleja koruso sen ni, o sekve koreo mallongigo hav. Eksterna tripunkto antaŭparto pli os, tago hieraŭa elnombrado ot jes.','First Test Post','publish','open','','0000-00-00 00:00:00','post','2','2','first-post');
+INSERT INTO cms_posts VALUES('','1','2011-03-05 20:00:00','Nal felmë onóro laurëa up, tixë halya ya nac. Celë venessë epë na, ep qua pitya etéraettul, ëa tólë enyárë taniquelassë oli. At enga telco wilwarin mól, to taima artuilë pereldar rip. Fánë méla lá táp. Engë lingwë carcassë cu wén, cala ninwa mírëa cua et.','2nd Test Post','publish','open','','0000-00-00 00:00:00','post','1','3','second-post');
 
 
 -- --------------------------------------------------------
@@ -76,7 +84,8 @@ CREATE TABLE IF NOT EXISTS `cms_tags` (
   PRIMARY KEY (`tag_id`)  
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
-
+INSERT INTO cms_tags VALUES('','Test TAG1','2011-01-01 10:00:00','0000-00-00 00:00:00');
+INSERT INTO cms_tags VALUES('','Test TAG2','2011-02-02 22:00:00','0000-00-00 00:00:00');
 -- --------------------------------------------------------
 
 --
@@ -93,18 +102,27 @@ CREATE TABLE IF NOT EXISTS `cms_posts_tags` (
   PRIMARY KEY (`post_tag_id`)  
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
-
+INSERT INTO cms_posts_tags VALUES('','8','8','2011-01-01 10:00:00','0000-00-00 00:00:00');
+INSERT INTO cms_posts_tags VALUES('','8','9','2011-01-01 10:00:00','0000-00-00 00:00:00');
+INSERT INTO cms_posts_tags VALUES('','9','8','2011-01-01 10:00:00','0000-00-00 00:00:00');
+INSERT INTO cms_posts_tags VALUES('','9','8','2011-01-01 10:00:00','0000-00-00 00:00:00');
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `cms_posts_comments`
 --
 
-DROP TABLE IF EXISTS `cms_posts_comments`;
-CREATE TABLE IF NOT EXISTS `cms_posts_comments` (
-  `post_comment_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `cms_comments`;
+CREATE TABLE IF NOT EXISTS `cms_comments` (
+  `comment_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `post_comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_comment_approved` tinyint(1) NOT NULL DEFAULT 0,    
-  PRIMARY KEY (`post_comment_id`)  
+  `comment_content` longtext NOT NULL,
+  `comment_email` varchar(100) NOT NULL,
+  `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_status` varchar(20) NOT NULL DEFAULT 'disapproved',
+  PRIMARY KEY (`comment_id`)  
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+INSERT INTO cms_comments VALUES('','8','This is the first comment test, it''s ok','test@test.com','2011-01-01 10:00:00','disapproved');
+INSERT INTO cms_comments VALUES('','8','This is the second comment test, it''s ok','test@test.com','2011-02-02 22:00:00','disapproved');
+INSERT INTO cms_comments VALUES('','9','This is the third (1st of the second post) commnt test, it''s ok','test@test.com','2011-02-02 22:00:00','disapproved');

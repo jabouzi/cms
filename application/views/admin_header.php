@@ -32,7 +32,7 @@
     <?endforeach?> 
     <script type="text/javascript">
     $(document).ready(function() {
-        $("#newpost").cleditor({
+        $("#post_content").cleditor({
             width:        750,
             height:       400
         });
