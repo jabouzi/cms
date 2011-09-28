@@ -25,6 +25,7 @@
 <script src="<?=base_url()?>public/js/jquery.tools.min.js"></script>
 
 <script type="text/javascript" src="<?=base_url()?>public/js/global.js"></script>
+<script type="text/javascript" src="<?=base_url()?>public/js/cms.js"></script>
 
 <?if (isset($javascript)):?>
     <?foreach ($javascript as $js):?>
