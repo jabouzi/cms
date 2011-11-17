@@ -10,33 +10,23 @@
                         </header>
                         
                         <section class="container_6 clearfix">                            
-                            <div class="message error" style="display:none">
-                                <h3>Error!</h3>
-                                <p id="error_message">                                    
-                                </p>
-                            </div>
-                            <div class="message success" style="display:none">
-                                <h3>Success!</h3>
-                                <p id="success_message">                                    
-                                </p>
-                            </div>
                             <div class="grid_6">
                                 <p>
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
                                 </p>
-                                <form id="form" class="form grid_6" method="post" action="/admin/create_post/">
-                                    <label>Category<small>Edit category</small></label><select id="post_category" name="post_category"><option>America/Los Angeles</option><option>America/New York</option><option>Asia/Manila</option></select>
-                                    <label>Title <em>*</em><small>Enter post title</small></label><input type="text" id="post_title" name="post_title"/>
-                                    <label>Url <em></em><small>Enter post url</small></label><input type="text" id="post_url" name="post_url"/>
+                                <form id="form" class="form grid_6" method="post" >
+                                    <label>Categories<small>Also known as tags</small></label><input type="text" id="add_post_categories" name="post_categories" value="" readonly />
+                                    <label>Title <em>*</em><small>Enter post title</small></label><input type="text" id="add_post_title" name="post_title" required="required"/>
+                                    <label>Url <em>*</em><small>Enter post url</small></label><input type="text" id="add_post_url" name="post_url" required="required"/>                                    
                                     <div class="clear1"></div>
                                     <label>Content <em>*</em><small>Enter post content</small></label>
                                     <div class="clear2"></div>
-                                    <textarea id="post_content" name="post_content"></textarea>
+                                    <textarea id="post_content" name="post_content" required="required"></textarea>
                                     <div class="clear3"></div>
                                     <div class="action">
-                                        <button class="button button-gray" type="submit"><span class="add"></span>Save</button>
-                                        <button class="button button-gray" type="submit"><span class="accept"></span>Publish</button>
-                                        <button class="button button-gray" type="reset"><span class="cancel"></span>Reset</button>
+                                        <button class="button button-gray" name="save" type="submit"><span class="add"></span>Save</button>
+                                        <button class="button button-gray" name="publish" type="submit"><span class="publish"></span>Publish</button>
+                                        <button class="button button-gray" name="reset" id="reset" type="reset"><span class="reload"></span>Reset</button>
                                     </div>
                                 </form>
                                 

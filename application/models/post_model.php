@@ -28,7 +28,7 @@ class Post_model extends CI_Model
     
     public function get_posts_infos()
     {
-        $this->db->select('post_id,post_title,post_date,post_comment_count');
+        $this->db->select('post_id,post_title,post_date,post_comment_count,post_status');
         $posts = $this->db->get('cms_posts');
         return $posts->result();
     }
@@ -90,5 +90,13 @@ class Post_model extends CI_Model
             'post_view_count' => $data['post_view_count'], 
             'post_custom_url' => $data['post_custom_url'],  
         ));       
+    }
+
+    public function update_post_field($id, $filed, $value)
+    {
+        $this->db->where('post_id',$id);     
+        $this->db->update('cms_posts',array(            
+            $filed => $value             
+        ));     
     }
 }

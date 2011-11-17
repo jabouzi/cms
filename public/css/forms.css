@@ -246,6 +246,9 @@ a.button.no-text {
 .button span.accept {
     background: transparent url(../images/icons/accept.png) no-repeat center center;
 }
+.button span.publish {
+    background: transparent url(../images/icons/accept.png) no-repeat center center;
+}
 .button span.add {
     background: transparent url(../images/icons/disk.png) no-repeat center center;
 }
@@ -267,7 +270,13 @@ a.button.no-text {
 .button span.view-grid {
     background: transparent url(../images/icons/application_view_tile.png) no-repeat center center;
 }
+.button span.reload {
+    background: transparent url(../images/icons/arrow_rotate_clockwise.png) no-repeat center center;
+}
 .button span.cancel {
+    background: transparent url(../images/icons/cancel.png) no-repeat center center;
+}
+.button span.unpublish {
     background: transparent url(../images/icons/cancel.png) no-repeat center center;
 }
 

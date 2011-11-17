@@ -13,7 +13,7 @@
                                 <?foreach($posts as $post):?>
                                 <li class="note">
                                     <span class="timestamp"><?=$post->post_date?></span>
-                                    <a href="#"><?=$post->post_title?></a>                                    
+                                    <a href="<?=base_url()?>admin/editpost/<?=$post->post_id?>"><?=$post->post_title?> (<small><?=$post->post_status?>)</small></a>                                    
                                     <div class="entry-meta">
                                         <p>Comments(<?=$post->post_comment_count?>)</p>
                                     </div>
