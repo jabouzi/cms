@@ -16,8 +16,8 @@
                                 <li class="contact clearfix">
                                     <div class="avatar"><img src="<?=base_url()?>public/images/user_32.png" /></div>
                                     <span class="timestamp"><?=$comment->comment_date?></span>
-                                    <a href="#" class="name"><?=$comment->comment_email?> (<small><i><?=$comment->comment_status?></i></small>)</a>
-                                    <div class="entry-meta">
+                                    <span class="editable name" id="<?=$comment->comment_id?>"><?=$comment->comment_email?> (<small><i><?=$comment->comment_status?></i></small>)</span>
+                                    <div class="entry-meta" id="comment_<?=$comment->comment_id?>">
                                         <?=$comment->comment_content?>
                                     </div>
                                 </li>
@@ -29,7 +29,7 @@
                                 <li><a href="#" class="button-blue">2</a></li>
                                 <li><a href="#" class="button-blue">3</a></li>
                                 <li><a href="#" class="button-blue">&raquo;</a></li>
-                            </ul>
+                            </ul>                            
                         </section>
                     </div>
 

@@ -30,5 +30,14 @@ $(document).ready(function() {
         });
     }
 
+    $('.editable').click(function(){
+        if ($(this).attr('id')) {
+            alert($('#comment_'+$(this).attr('id')).html());
+        } else {
+            $(this).removeClass('editable')
+            $(this).html("<input type='text' value='"+$(this).html()+"'>");
+        }
+    });
+
 });
 

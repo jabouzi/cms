@@ -1032,6 +1032,9 @@ body.login {
 .icon-category {
     background-image: url(../images/icons/tag_blue.png) !important;
 }
+.icon-add-category {
+    background-image: url(../images/icons/add-blue.png) !important;
+}
 
 /**
  * Footer
@@ -1088,4 +1091,17 @@ body > footer {
 .apple_overlay.black {
     background-image:url(../images/overlay/transparent.png);        
     color:#fff;
+}
+
+.editable {
+    color: #0066ff;
+    font-size: 12px;
+    font-weight: bold;
+    outline: none;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.editable:hover {
+    text-decoration: underline;
 }

@@ -97,11 +97,11 @@ $(document).ready(function() {
     });
 
     // preview pane setup
-    $('.list-view > li').click(function(){
+    /*$('.list-view > li').click(function(){
         var url = $(this).find('.more').attr('href');
         if (!$(this).hasClass('current')) {
             $('.preview-pane .preview').animate({left: "-375px"}, 300, function(){
-                $(this).animate({left: "-22px"}, 500).html('<img src="images/ajax-loader.gif" />').load(url);
+                $(this).animate({left: "-22px"}, 500).html('<img src="../images/ajax-loader.gif" />').load(url);
             });
         } else {
             $('.preview-pane .preview').animate({left: "-375px"}, 300);
@@ -116,7 +116,7 @@ $(document).ready(function() {
         $('.preview-pane .preview').animate({left: "-375px"}, 300);
         $('.list-view li').removeClass('current');
         return false;
-    });
+    });*/
     // preview pane setup end
 
     // floating menu and preview pane
