@@ -27,10 +27,16 @@
                             <div class="grid_6">
                                 <p>
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
-                                    <a class="modalInput button button-red" rel="#prompt">Edit categories</a>
                                 </p>
                                 <form id="form" class="form grid_6" method="post">
-                                    <label>Categories<small>Also known as tags</small></label><input type="text" id="edit_post_categories" name="post_categories" value="<?=implode(', ',array_unique($tags))?>" readonly />
+                                    <label>Categories<small>Also known as tags</small></label>
+                                    <select id="post_categories" name="post_categories[]" multiple="multiple" size="2" style="width:265px;">
+                                        <?foreach($tags as $tag):?>
+                                            <?$selected = '';?>
+                                            <?if (in_array($tag->tag_id, $post_tags)) $selected = 'selected';?>
+                                            <option value="<?=$tag->tag_id?>" <?=$selected?> ><?=$tag->tag_name?></option>                                        
+                                        <?endforeach?>
+                                    </select>      
                                     <label>Title <em>*</em><small>Edit post title</small></label><input type="text" id="edit_post_title" name="post_title" required="required" value="<?=$post[0]->post_title?>" />
                                     <label>Url <em>*</em><small>Edit post url</small></label><input type="text" id="edit_post_url" name="post_url" required="required" value="<?=$post[0]->post_custom_url?>" />
                                     <div class="clear1"></div>
@@ -70,7 +76,7 @@
              <form>
                  <input type="text" id="post_category"/>
                  <hr />
-                 <button class="button button-gray" type="submit">OK</button>
+                 <button class="button button-gray close" id="add_category_button" type="submit">OK</button>
                  <button class="button button-gray close" type="button">Cancel</button>
              </form>
          </section>

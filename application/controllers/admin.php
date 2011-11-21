@@ -80,9 +80,20 @@ class Admin extends CI_Controller
                     'post_comment_count' => 0, 
                     'post_view_count' => 0, 
                     'post_custom_url' => $_POST['post_url'], 
-                );
+                );               
 
                 $new_id = $this->post_model->add_post($post_new_data);
+                
+                foreach($_POST['post_categories'] as $tag_id)
+                {
+                    $post_tags_data = array(
+                        'tag_id' => $tag_id,
+                        'post_id' => $new_id,
+                        'post_tag_date' => date('Y-m-d H:i:s'),
+                        'post_tag_modified' => '',            
+                    );
+                    $this->category_model->add_post_tag($post_tags_data);
+                }
                 redirect('admin/editpost/'.$new_id);               
             }
             
@@ -93,10 +104,11 @@ class Admin extends CI_Controller
             $css[] = base_url()."public/cleeditor/jquery.cleditor.css";            
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
+            $post_data['tags'] = $this->category_model->get_all();
             $this->load->view('admin_header',$data);    
             $this->load->view('admin_topmenu',$header_data);        
             $this->load->view('admin_leftmenu',$data);
-            $this->load->view('admin_newpost');    
+            $this->load->view('admin_newpost',$post_data);    
             $this->load->view('admin_footer');        
         }
         else
@@ -106,7 +118,7 @@ class Admin extends CI_Controller
     }
     
     function editpost($post_id)
-    {        
+    {
         if (isset($this->session->userdata['user']))
         {
 
@@ -133,6 +145,19 @@ class Admin extends CI_Controller
                 $this->post_model->update_post_field($post_id, 'post_content', $_POST['post_content']);
                 $this->post_model->update_post_field($post_id, 'post_modified', date('Y-m-d H:i:s'));
 
+                $_POST['post_categories'];
+                $this->category_model->delete_post_tags($post_id);
+                foreach($_POST['post_categories'] as $tag_id)
+                {
+                    $post_tags_data = array(
+                        'tag_id' => $tag_id,
+                        'post_id' => $post_id,
+                        'post_tag_date' => date('Y-m-d H:i:s'),
+                        'post_tag_modified' => '',            
+                    );
+                    $this->category_model->add_post_tag($post_tags_data);
+                }
+
                 $post_data['save'] = 'success'; 
                 
             }
@@ -145,12 +170,11 @@ class Admin extends CI_Controller
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
             $post_data['post'] = $this->post_model->get_post($post_id);
-            $tags = $this->category_model->get_post_tags($post_id);
-            $post_data['tags'] = array();
-            foreach($tags as $tag)
+            $post_tags = $this->category_model->get_post_tags($post_id);
+            $post_data['tags'] = $this->category_model->get_all();
+            foreach($post_tags as $tag)
             {
-                $tag_info = $this->category_model->get_tag($tag->tag_id);
-                $post_data['tags'][] = $tag_info[0]->tag_name;
+                $post_data['post_tags'][] = $tag->tag_id;
             }
             $post_data['next_status'] = 'Publish';
             if ($post_data['post'][0]->post_status == 'publish')
@@ -186,6 +210,28 @@ class Admin extends CI_Controller
         else
         {
             redirect('login/');
+        }
+    }
+
+    function add_category($category_name)
+    {
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'))
+        {
+            $tag = $this->category_model->get_tag_by_name(urldecode($category_name));
+            if (count($tag))
+            {
+                echo 0;
+            }
+            else
+            {
+                $tag_data =  array(
+                    'tag_name' => urldecode($category_name),
+                    'tag_date' => date('Y-m-d H:i:s'),
+                    'tag_modified' => '',         
+                );
+                $tag_id = $this->category_model->add_tag($tag_data);
+                echo $tag_id;
+            }
         }
     }
 }

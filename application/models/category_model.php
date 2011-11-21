@@ -70,9 +70,9 @@ class Category_model extends CI_Model
         return $this->db->insert_id();
     }
     
-    public function delete_post_tag($id)
+    public function delete_post_tags($id)
     {
-        $this->db->where('post_tag_id',$id);
+        $this->db->where('post_id',$id);
         $this->db->delete('cms_posts_tags');
     }    
 }

@@ -15,7 +15,13 @@
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
                                 </p>
                                 <form id="form" class="form grid_6" method="post" >
-                                    <label>Categories<small>Also known as tags</small></label><input type="text" id="add_post_categories" name="post_categories" value="" readonly />
+                                    <label>Categories<small>Also known as tags</small>                                    
+                                    </label>
+                                    <select id="post_categories" name="post_categories[]" multiple="multiple" size="2" style="width:265px;">
+                                        <?foreach($tags as $tag):?>
+                                            <option value="<?=$tag->tag_id?>" ><?=$tag->tag_name?></option>                                        
+                                        <?endforeach?>
+                                    </select>                                   
                                     <label>Title <em>*</em><small>Enter post title</small></label><input type="text" id="add_post_title" name="post_title" required="required"/>
                                     <label>Url <em>*</em><small>Enter post url</small></label><input type="text" id="add_post_url" name="post_url" required="required"/>                                    
                                     <div class="clear1"></div>
@@ -51,12 +57,12 @@
              </p>
 
              <!-- input form. you can press enter too -->
-             <form>
+             
                  <input type="text" id="post_new_category" name="post_new_category"/>
                  <hr />
-                 <button class="button button-gray" type="submit">OK</button>
+                 <button class="button button-gray close" id="add_category_button" type="submit">OK</button>
                  <button class="button button-gray close" type="button">Cancel</button>
-             </form>
+           
          </section>
         </div>
         
