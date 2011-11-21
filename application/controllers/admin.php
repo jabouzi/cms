@@ -212,6 +212,26 @@ class Admin extends CI_Controller
             redirect('login/');
         }
     }
+    
+    function categories()
+    {    
+        if (isset($this->session->userdata['user']))
+        {
+            $active = array('','','','','active');
+            $data['active'] = $active;
+            $header_data['user_name'] = $this->session->userdata['name'];
+            $categories_data['tags'] = $this->category_model->get_all();
+            $this->load->view('admin_header');    
+            $this->load->view('admin_topmenu',$header_data);    
+            $this->load->view('admin_leftmenu',$data);
+            $this->load->view('admin_categories',$categories_data);    
+            $this->load->view('admin_footer');
+        }
+        else
+        {
+            redirect('login/');
+        }
+    }
 
     function add_category($category_name)
     {
