@@ -1025,6 +1025,9 @@ body.login {
 .icon-new-post {
     background-image: url(../images/icons/page.png) !important;
 }
+.icon-category {
+    background-image: url(../images/icons/tag_blue.png) !important;
+}
 
 /**
  * Footer
