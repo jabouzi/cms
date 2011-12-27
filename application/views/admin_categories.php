@@ -14,9 +14,11 @@
                             <ul id="categories" class="listing list-view clearfix">
                                 <?foreach($tags as $tag):?>
                                 <li class="category clearfix">                                    
-                                    <span class="timestamp"><a href="#"><img src="<?=base_url()?>public/images/icons/delete.png" /></a></span>
-                                    <span class="editable name" id="<?=$tag->tag_id?>"><?=$tag->tag_name?></span>   
-                                                                     
+                                    <span class="timestamp">
+                                        <a href="#" id="delete_tag_<?=$tag->tag_id?>"><img src="<?=base_url()?>public/images/icons/delete.png" /></a>
+                                        <a href="#" id="save_tag_<?=$tag->tag_id?>" style="display:none"><img src="<?=base_url()?>public/images/icons/disk.png" /></a>
+                                    </span>
+                                    <span class="editable name" id="<?=$tag->tag_id?>"><?=$tag->tag_name?></span>
                                 </li>
                                 <?endforeach?>                     
                             </ul>

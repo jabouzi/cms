@@ -58,42 +58,10 @@ class Admin extends CI_Controller
         if (isset($this->session->userdata['user']))
         {
             $post_data['save'] = '';
-
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
-                $publish =  'unpublish';     
-                if (isset($_POST['publish']))
-                {
-                    $publish =  'publish';                   
-                }
-                
-                $post_new_data = array(
-                    'post_author' => '1', 
-                    'post_date' => date('Y-m-d H:i:s'), 
-                    'post_content' => $_POST['post_content'], 
-                    'post_title' => $_POST['post_title'], 
-                    'post_status' => $publish, 
-                    'post_comment_status' => 'open', 
-                    'post_name' => '', 
-                    'post_modified' => '', 
-                    'post_type' => 'post', 
-                    'post_comment_count' => 0, 
-                    'post_view_count' => 0, 
-                    'post_custom_url' => $_POST['post_url'], 
-                );               
-
-                $new_id = $this->post_model->add_post($post_new_data);
-                
-                foreach($_POST['post_categories'] as $tag_id)
-                {
-                    $post_tags_data = array(
-                        'tag_id' => $tag_id,
-                        'post_id' => $new_id,
-                        'post_tag_date' => date('Y-m-d H:i:s'),
-                        'post_tag_modified' => '',            
-                    );
-                    $this->category_model->add_post_tag($post_tags_data);
-                }
+                $new_id = $this->add_post($_POST);
+                $this->update_post_tags($new_id, $_POST['post_categories']);                
                 redirect('admin/editpost/'.$new_id);               
             }
             
@@ -121,45 +89,16 @@ class Admin extends CI_Controller
     {
         if (isset($this->session->userdata['user']))
         {
-
             if (empty($post_id))
             {
                 redirect('admin/newpost/');
             }
 
             $post_data['save'] = '';
-
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
-                if (isset($_POST['publish']))
-                {
-                    $this->post_model->update_post_field($post_id, 'post_status', 'publish');                   
-                }
-                else if (isset($_POST['unpublish']))
-                {
-                    $this->post_model->update_post_field($post_id, 'post_status', 'unpublish');                    
-                }
-                              
-                $this->post_model->update_post_field($post_id, 'post_title', $_POST['post_title']);
-                $this->post_model->update_post_field($post_id, 'post_custom_url', $_POST['post_url']);
-                $this->post_model->update_post_field($post_id, 'post_content', $_POST['post_content']);
-                $this->post_model->update_post_field($post_id, 'post_modified', date('Y-m-d H:i:s'));
-
-                $_POST['post_categories'];
-                $this->category_model->delete_post_tags($post_id);
-                foreach($_POST['post_categories'] as $tag_id)
-                {
-                    $post_tags_data = array(
-                        'tag_id' => $tag_id,
-                        'post_id' => $post_id,
-                        'post_tag_date' => date('Y-m-d H:i:s'),
-                        'post_tag_modified' => '',            
-                    );
-                    $this->category_model->add_post_tag($post_tags_data);
-                }
-
-                $post_data['save'] = 'success'; 
-                
+                $this->update_post($post_id, $_POST);
+                $this->update_post_tags($post_id, $_POST['post_categories']);
             }
             
             $active = array('','active','','','');
@@ -235,7 +174,7 @@ class Admin extends CI_Controller
 
     function add_category($category_name)
     {
-        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'))
+        if (isAjax())
         {
             $tag = $this->category_model->get_tag_by_name(urldecode($category_name));
             if (count($tag))
@@ -253,6 +192,65 @@ class Admin extends CI_Controller
                 echo $tag_id;
             }
         }
+    }
+    
+    private function update_post($post_id, $post_data)
+    {
+        if (isset($post_data['publish']))
+        {
+            $this->post_model->update_post_field($post_id, 'post_status', 'publish');                   
+        }
+        else if (isset($post_data['unpublish']))
+        {
+            $this->post_model->update_post_field($post_id, 'post_status', 'unpublish');                    
+        }
+                      
+        $this->post_model->update_post_field($post_id, 'post_title', $post_data['post_title']);
+        $this->post_model->update_post_field($post_id, 'post_custom_url', $post_data['post_url']);
+        $this->post_model->update_post_field($post_id, 'post_content', $post_data['post_content']);
+        $this->post_model->update_post_field($post_id, 'post_modified', date('Y-m-d H:i:s'));
+    }
+    
+    private function add_post($post_data)
+    {
+        $publish =  'unpublish';     
+        if (isset($post_data['publish']))
+        {
+            $publish =  'publish';                   
+        }
+        
+        $post_new_data = array(
+            'post_author' => '1', 
+            'post_date' => date('Y-m-d H:i:s'), 
+            'post_content' => $post_data['post_content'], 
+            'post_title' => $post_data['post_title'], 
+            'post_status' => $publish, 
+            'post_comment_status' => 'open', 
+            'post_name' => '', 
+            'post_modified' => '', 
+            'post_type' => 'post', 
+            'post_comment_count' => 0, 
+            'post_view_count' => 0, 
+            'post_custom_url' => $post_data['post_url'], 
+        );               
+        
+        return $this->post_model->add_post($post_new_data);
+    }
+    
+    private function update_post_tags($post_id, $tags)
+    {
+        $this->category_model->delete_post_tags($post_id);
+        foreach($tags as $tag_id)
+        {
+            $post_tags_data = array(
+                'tag_id' => $tag_id,
+                'post_id' => $post_id,
+                'post_tag_date' => date('Y-m-d H:i:s'),
+                'post_tag_modified' => '',            
+            );
+            $this->category_model->add_post_tag($post_tags_data);
+        }
+        $post_data['save'] = 'success'; 
     }
 }
 

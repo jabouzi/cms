@@ -30,18 +30,17 @@ $(document).ready(function() {
         });
     }
 
-    $('.editable').click(function(){
-        if ($(this).attr('id')) {
-            if($(this).html().indexOf('input') == -1)
+    $('.editable').click(function()
+    {
+        if ($(this).attr('id')) 
+        {
+            if($(this).html().indexOf('<') == -1 && $(this).html().indexOf('input') == -1 
+                && $(this).html().indexOf('type') == -1  && $(this).html().indexOf('text') == -1)
             {
-                //$(this).removeClass('editable')
+                $("#delete_tag_"+$(this).attr('id')).hide();
+                $("#save_tag_"+$(this).attr('id')).show();
                 $(this).html("<input id='"+$(this).attr('id')+"' type='text' value='"+$(this).html()+"'>");       
-            }  
-            //alert($('#comment_'+$(this).attr('id')).html());
-                 
-        } else {
-            //$(this).removeClass('editable')
-            //$(this).html("<input id='"+$(this).attr('id')+"' type='text' value='"+$(this).html()+"'>");
+            }
         }
     });
 
