@@ -32,12 +32,26 @@ $(document).ready(function() {
 
     $('.editable').click(function(){
         if ($(this).attr('id')) {
-            alert($('#comment_'+$(this).attr('id')).html());
+            if($(this).html().indexOf('input') == -1)
+            {
+                //$(this).removeClass('editable')
+                $(this).html("<input id='"+$(this).attr('id')+"' type='text' value='"+$(this).html()+"'>");       
+            }  
+            //alert($('#comment_'+$(this).attr('id')).html());
+                 
         } else {
-            $(this).removeClass('editable')
-            $(this).html("<input type='text' value='"+$(this).html()+"'>");
+            //$(this).removeClass('editable')
+            //$(this).html("<input id='"+$(this).attr('id')+"' type='text' value='"+$(this).html()+"'>");
         }
     });
 
 });
+
+function edit_item(id)
+{
+    if($('#'+id).html().indexOf('input') == -1)
+    {
+        $('#'+id).html("<input id='"+id+"' type='text' value='"+$('#'+id).html()+"'>");
+    }    
+}
 
