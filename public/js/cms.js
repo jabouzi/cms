@@ -30,7 +30,7 @@ $(document).ready(function() {
         });
     }
 
-    $('.editable').click(function()
+    /*$('.editable').click(function()
     {
         if ($(this).attr('id')) 
         {
@@ -42,15 +42,33 @@ $(document).ready(function() {
                 $(this).html("<input id='"+$(this).attr('id')+"' type='text' value='"+$(this).html()+"'>");       
             }
         }
-    });
+    });*/
 
 });
 
-function edit_item(id)
+function get_tag_infos(tag_id)
 {
-    if($('#'+id).html().indexOf('input') == -1)
-    {
-        $('#'+id).html("<input id='"+id+"' type='text' value='"+$('#'+id).html()+"'>");
-    }    
+    $.get("/admin/get_category_info/"+tag_id+'/',{uid : String((new Date()).getTime()).replace(/\D/gi, '') },
+        function(result) {
+            if (result == 0)
+            {
+                alert('Error getting catgory infos');
+            }
+            else
+            {                        
+                //$('#post_categories').append($("<option></option>").attr("value",result).text(tag_name));
+            }
+        }
+    );
+}
+
+function editTag(id)
+{
+    get_tag_infos(id);
+}
+
+function editComment(id)
+{
+    
 }
 

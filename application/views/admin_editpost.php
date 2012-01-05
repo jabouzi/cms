@@ -74,9 +74,9 @@
 
              <!-- input form. you can press enter too -->
              <form>
-                 <input type="text" id="post_category"/>
+                 <label>Category title: </label><input type="text" id="post_new_category" name="post_new_category"/>
                  <hr />
-                 <button class="button button-gray close" id="add_category_button" type="submit">OK</button>
+                 <button class="button button-gray close" id="add_category_button" type="button">OK</button>
                  <button class="button button-gray close" type="button">Cancel</button>
              </form>
          </section>

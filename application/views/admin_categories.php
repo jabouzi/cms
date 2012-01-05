@@ -18,7 +18,7 @@
                                         <a href="#" id="delete_tag_<?=$tag->tag_id?>"><img src="<?=base_url()?>public/images/icons/delete.png" /></a>
                                         <a href="#" id="save_tag_<?=$tag->tag_id?>" style="display:none"><img src="<?=base_url()?>public/images/icons/disk.png" /></a>
                                     </span>
-                                    <span class="editable name" id="<?=$tag->tag_id?>"><?=$tag->tag_name?></span>
+                                    <span onclick="editTag('<?=$tag->tag_id?>')" class="editable name" id="<?=$tag->tag_id?>"><?=$tag->tag_name?></span>
                                 </li>
                                 <?endforeach?>                     
                             </ul>
@@ -54,4 +54,29 @@
             </div>
             <div id="push"></div>
         </section>
+        
+        <div class="widget modal" id="prompt">
+         <header><h2>This is a modal dialog</h2></header>
+         <section>
+             <p>
+                 You can only interact with elements that are inside this dialog.
+                 To close it click a button or use the ESC key.
+             </p>
+
+             <!-- input form. you can press enter too -->
+            <form>
+                <label>Category title: </label><input type="text" id="category_title" name="category_title"/>
+                <label>Add to menu: </label><input type="checkbox" id="category_menu" name="category_menu" value="1"/>
+                <label>Parent Category: </label>
+                <select id="parent_category" name="parent_category">
+                    <?foreach($tags as $tag):?>
+                        <select id="<?=$tag->tag_id?>"><?=$tag->tag_name?></select>
+                    <?endforeach?>        
+                </select>
+                <hr />
+                <button class="button button-gray close" id="add_category_button" type="submit">OK</button>
+                <button class="button button-gray close" type="button">Cancel</button>
+            </form>
+         </section>
+        </div>
     </div>

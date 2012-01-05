@@ -65,7 +65,7 @@ class Admin extends CI_Controller
                 redirect('admin/editpost/'.$new_id);               
             }
             
-            $active = array('','','','active','');
+            $active = array('','','active','','');
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
@@ -136,7 +136,7 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
-            $active = array('','','active','','');
+            $active = array('','','','active','');
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $comments_data['comments'] = $this->comment_model->get_all();
@@ -191,6 +191,18 @@ class Admin extends CI_Controller
                 $tag_id = $this->category_model->add_tag($tag_data);
                 echo $tag_id;
             }
+        }
+    }
+    
+    function get_category_info($cat_id)
+    {
+        if (isAjax())
+        {
+            $category = $this->category_model->get_tag($cat_id);
+            print_r($category);
+            $category = get_object_vars($category[0]);
+            print_r($category);
+            //echo json_encode($categorie[0]);
         }
     }
     
