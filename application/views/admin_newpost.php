@@ -15,11 +15,11 @@
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
                                 </p>
                                 <form id="form" class="form grid_6" method="post" >
-                                    <label>Categories<small>Also known as tags</small>                                    
+                                    <label>Categories<small>Also known as categories</small>                                    
                                     </label>
                                     <select id="post_categories" name="post_categories[]" multiple="multiple" size="2" style="width:265px;">
-                                        <?foreach($tags as $tag):?>
-                                            <option value="<?=$tag->tag_id?>" ><?=$tag->tag_name?></option>                                        
+                                        <?foreach($categories as $category):?>
+                                            <option value="<?=$category->category_id?>" ><?=$category->category_name?></option>                                        
                                         <?endforeach?>
                                     </select>                                   
                                     <label>Title <em>*</em><small>Enter post title</small></label><input type="text" id="add_post_title" name="post_title" required="required"/>
@@ -30,7 +30,7 @@
                                     <textarea id="post_content" name="post_content" required="required"></textarea>
                                     <div class="clear3"></div>
                                     <div class="action">
-                                        <button class="button button-gray" name="save" type="submit"><span class="add"></span>Save</button>
+                                        <button class="button button-gray" name="save" type="submit"><span class="save"></span>Save</button>
                                         <button class="button button-gray" name="publish" type="submit"><span class="publish"></span>Publish</button>
                                         <button class="button button-gray" name="reset" id="reset" type="reset"><span class="reload"></span>Reset</button>
                                     </div>

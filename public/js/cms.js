@@ -29,26 +29,28 @@ $(document).ready(function() {
             );
         });
     }
-
-    /*$('.editable').click(function()
+    
+    
+    $('.edit_category').click(function()
     {
         if ($(this).attr('id')) 
         {
-            if($(this).html().indexOf('<') == -1 && $(this).html().indexOf('input') == -1 
+            get_category_infos($(this).attr('id'));
+            /*if($(this).html().indexOf('<') == -1 && $(this).html().indexOf('input') == -1 
                 && $(this).html().indexOf('type') == -1  && $(this).html().indexOf('text') == -1)
             {
                 $("#delete_tag_"+$(this).attr('id')).hide();
                 $("#save_tag_"+$(this).attr('id')).show();
                 $(this).html("<input id='"+$(this).attr('id')+"' type='text' value='"+$(this).html()+"'>");       
-            }
+            }*/
         }
-    });*/
+    });
 
 });
 
-function get_tag_infos(tag_id)
+function get_category_infos(cat_id)
 {
-    $.get("/admin/get_category_info/"+tag_id+'/',{uid : String((new Date()).getTime()).replace(/\D/gi, '') },
+    $.getJSON("/admin/get_category_info/"+cat_id+'/',{uid : String((new Date()).getTime()).replace(/\D/gi, '') },
         function(result) {
             if (result == 0)
             {
@@ -56,18 +58,21 @@ function get_tag_infos(tag_id)
             }
             else
             {                        
-                //$('#post_categories').append($("<option></option>").attr("value",result).text(tag_name));
+                $('#form').show();
+                $('#category_name').val(result['category_name']);
+                $('.category_opt').show();
+                $('#cat_'+cat_id).hide();
             }
         }
     );
 }
 
-function editTag(id)
+function edit_category(id)
 {
-    get_tag_infos(id);
+    get_category_infos(id);
 }
 
-function editComment(id)
+function edit_comment(id)
 {
     
 }

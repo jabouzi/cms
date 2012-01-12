@@ -250,6 +250,9 @@ a.button.no-text {
     background: transparent url(../images/icons/accept.png) no-repeat center center;
 }
 .button span.add {
+    background: transparent url(../images/icons/add.png) no-repeat center center;
+}
+.button span.save {
     background: transparent url(../images/icons/disk.png) no-repeat center center;
 }
 .button span.pencil {

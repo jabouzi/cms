@@ -61,7 +61,7 @@ class Admin extends CI_Controller
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
                 $new_id = $this->add_post($_POST);
-                $this->update_post_tags($new_id, $_POST['post_categories']);                
+                $this->update_post_categories($new_id, $_POST['post_categories']);                
                 redirect('admin/editpost/'.$new_id);               
             }
             
@@ -72,7 +72,7 @@ class Admin extends CI_Controller
             $css[] = base_url()."public/cleeditor/jquery.cleditor.css";            
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
-            $post_data['tags'] = $this->category_model->get_all();
+            $post_data['categories'] = $this->category_model->get_all();
             $this->load->view('admin_header',$data);    
             $this->load->view('admin_topmenu',$header_data);        
             $this->load->view('admin_leftmenu',$data);
@@ -98,7 +98,7 @@ class Admin extends CI_Controller
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
                 $this->update_post($post_id, $_POST);
-                $this->update_post_tags($post_id, $_POST['post_categories']);
+                $this->update_post_categories($post_id, $_POST['post_categories']);
             }
             
             $active = array('','active','','','');
@@ -109,11 +109,11 @@ class Admin extends CI_Controller
             $data['javascript'] = $js;
             $data['stylesheet'] = $css;
             $post_data['post'] = $this->post_model->get_post($post_id);
-            $post_tags = $this->category_model->get_post_tags($post_id);
-            $post_data['tags'] = $this->category_model->get_all();
-            foreach($post_tags as $tag)
+            $post_categories = $this->category_model->get_post_categories($post_id);
+            $post_data['categories'] = $this->category_model->get_all();
+            foreach($post_categories as $category)
             {
-                $post_data['post_tags'][] = $tag->tag_id;
+                $post_data['post_categories'][] = $category->category_id;
             }
             $post_data['next_status'] = 'Publish';
             if ($post_data['post'][0]->post_status == 'publish')
@@ -159,7 +159,7 @@ class Admin extends CI_Controller
             $active = array('','','','','active');
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
-            $categories_data['tags'] = $this->category_model->get_all();
+            $categories_data['categories'] = $this->category_model->get_all();
             $this->load->view('admin_header');    
             $this->load->view('admin_topmenu',$header_data);    
             $this->load->view('admin_leftmenu',$data);
@@ -176,20 +176,20 @@ class Admin extends CI_Controller
     {
         if (isAjax())
         {
-            $tag = $this->category_model->get_tag_by_name(urldecode($category_name));
-            if (count($tag))
+            $category = $this->category_model->get_category_by_name(urldecode($category_name));
+            if (count($category))
             {
                 echo 0;
             }
             else
             {
-                $tag_data =  array(
-                    'tag_name' => urldecode($category_name),
-                    'tag_date' => date('Y-m-d H:i:s'),
-                    'tag_modified' => '',         
+                $category_data =  array(
+                    'category_name' => urldecode($category_name),
+                    'category_date' => date('Y-m-d H:i:s'),
+                    'category_modified' => '',         
                 );
-                $tag_id = $this->category_model->add_tag($tag_data);
-                echo $tag_id;
+                $category_id = $this->category_model->add_category($category_data);
+                echo $category_id;
             }
         }
     }
@@ -198,11 +198,8 @@ class Admin extends CI_Controller
     {
         if (isAjax())
         {
-            $category = $this->category_model->get_tag($cat_id);
-            print_r($category);
-            $category = get_object_vars($category[0]);
-            print_r($category);
-            //echo json_encode($categorie[0]);
+            $category = $this->category_model->get_category($cat_id);
+            echo json_encode($category[0]);
         }
     }
     
@@ -249,18 +246,18 @@ class Admin extends CI_Controller
         return $this->post_model->add_post($post_new_data);
     }
     
-    private function update_post_tags($post_id, $tags)
+    private function update_post_categories($post_id, $categories)
     {
-        $this->category_model->delete_post_tags($post_id);
-        foreach($tags as $tag_id)
+        $this->category_model->delete_post_categories($post_id);
+        foreach($categories as $category_id)
         {
-            $post_tags_data = array(
-                'tag_id' => $tag_id,
+            $post_categories_data = array(
+                'category_id' => $category_id,
                 'post_id' => $post_id,
-                'post_tag_date' => date('Y-m-d H:i:s'),
-                'post_tag_modified' => '',            
+                'post_category_date' => date('Y-m-d H:i:s'),
+                'post_category_modified' => '',            
             );
-            $this->category_model->add_post_tag($post_tags_data);
+            $this->category_model->add_post_category($post_categories_data);
         }
         $post_data['save'] = 'success'; 
     }

@@ -29,12 +29,12 @@
                                     <a class="modalInput button button-blue" rel="#prompt">Add new category</a>
                                 </p>
                                 <form id="form" class="form grid_6" method="post">
-                                    <label>Categories<small>Also known as tags</small></label>
+                                    <label>Categories<small>Also known as categories</small></label>
                                     <select id="post_categories" name="post_categories[]" multiple="multiple" size="2" style="width:265px;">
-                                        <?foreach($tags as $tag):?>
+                                        <?foreach($categories as $category):?>
                                             <?$selected = '';?>
-                                            <?if (in_array($tag->tag_id, $post_tags)) $selected = 'selected';?>
-                                            <option value="<?=$tag->tag_id?>" <?=$selected?> ><?=$tag->tag_name?></option>                                        
+                                            <?if (in_array($category->category_id, $post_categories)) $selected = 'selected';?>
+                                            <option value="<?=$category->category_id?>" <?=$selected?> ><?=$category->category_name?></option>                                        
                                         <?endforeach?>
                                     </select>      
                                     <label>Title <em>*</em><small>Edit post title</small></label><input type="text" id="edit_post_title" name="post_title" required="required" value="<?=$post[0]->post_title?>" />
@@ -45,7 +45,7 @@
                                     <textarea id="post_content" name="post_content" required="required" ><?=$post[0]->post_content?></textarea>
                                     <div class="clear3"></div>
                                     <div class="action">
-                                        <button class="button button-gray" name="save" type="submit"><span class="add"></span>Save</button>
+                                        <button class="button button-gray" name="save" type="submit"><span class="save"></span>Save</button>
                                         <button class="button button-gray" name="<?=strtolower($next_status)?>" type="submit"><span class="<?=strtolower($next_status)?>"></span><?=ucfirst($next_status)?></button>
                                         <button class="button button-gray" name="reset" id="reset" type="reset"><span class="reload"></span>Reset</button>
                                     </div>

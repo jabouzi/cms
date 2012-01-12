@@ -4,75 +4,75 @@ class Category_model extends CI_Model
 {
     public function get_all()
     {
-        $data = $this->db->get('cms_tags');
+        $data = $this->db->get('cms_categories');
         return $data->result();
     }
 
     public function count()
     {     
-        return $this->db->count_all('cms_tags');
+        return $this->db->count_all('cms_categories');
     }
     
-    public function get_tag($id)
+    public function get_category($id)
     {        
-        $this->db->where('tag_id',$id);
-        return $this->db->get('cms_tags')->result();
+        $this->db->where('category_id',$id);
+        return $this->db->get('cms_categories')->result();
     }
     
-    public function get_tag_by_name($tag)
+    public function get_category_by_name($category)
     {        
-        $this->db->where('tag_name',$tag);
-        return $this->db->get('cms_tags')->result();
+        $this->db->where('category_name',$category);
+        return $this->db->get('cms_categories')->result();
     }    
 
-    public function get_post_tags($id)
+    public function get_post_categories($id)
     {        
         $this->db->where('post_id',$id);
-        return $this->db->get('cms_posts_tags')->result();
+        return $this->db->get('cms_posts_categories')->result();
     }
    
-    public function add_tag($data)
+    public function add_category($data)
     {
-        $this->db->insert('cms_tags', array(
-            'tag_name' => $data['tag_name'],
-            'tag_date' => $data['tag_date'],
-            'tag_modified' => $data['tag_modified'],         
+        $this->db->insert('cms_categories', array(
+            'category_name' => $data['category_name'],
+            'category_date' => $data['category_date'],
+            'category_modified' => $data['category_modified'],         
         ));      
 
         return $this->db->insert_id();
     }
     
-    public function delete_tag($id)
+    public function delete_category($id)
     {
-        $this->db->where('tag_id',$id);
-        $this->db->delete('cms_tags');
+        $this->db->where('category_id',$id);
+        $this->db->delete('cms_categories');
     }
     
-    public function update_tag($id, $data)
+    public function update_category($id, $data)
     {
-        $this->db->where('tag_id',$id);     
-        $this->db->update('cms_tags',array(            
-            'tag_name' => $data['tag_name'],
-            'tag_date' => $data['tag_date'],
-            'tag_modified' => $data['tag_modified'], 
+        $this->db->where('category_id',$id);     
+        $this->db->update('cms_categories',array(            
+            'category_name' => $data['category_name'],
+            'category_date' => $data['category_date'],
+            'category_modified' => $data['category_modified'], 
         ));       
     }
     
-    public function add_post_tag($data)
+    public function add_post_category($data)
     {
-        $this->db->insert('cms_posts_tags', array(
-            'tag_id' => $data['tag_id'],
+        $this->db->insert('cms_posts_categories', array(
+            'category_id' => $data['category_id'],
             'post_id' => $data['post_id'],
-            'post_tag_date' => $data['post_tag_date'],
-            'post_tag_modified' => $data['post_tag_modified'],            
+            'post_category_date' => $data['post_category_date'],
+            'post_category_modified' => $data['post_category_modified'],            
         ));      
 
         return $this->db->insert_id();
     }
     
-    public function delete_post_tags($id)
+    public function delete_post_categories($id)
     {
         $this->db->where('post_id',$id);
-        $this->db->delete('cms_posts_tags');
+        $this->db->delete('cms_posts_categories');
     }    
 }
