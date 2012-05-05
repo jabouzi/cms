@@ -52,13 +52,20 @@ class Login extends CI_Controller
     private function user_login_valid($username,$password)
     {
         $userpassword = $this->user_model->check_login($username,$password);
-        $array2 = class_decrypt::keycalc('skanderjabouzi.com');
-        $array = class_decrypt::stringtoarray($userpassword[0]->user_password);
-        if ($password == class_decrypt::transformstring($array, $array2))
+        if (!empty($userpassword))
         {
-           return true;     
+            $array2 = class_decrypt::keycalc('skanderjabouzi.com');
+            $array = class_decrypt::stringtoarray($userpassword[0]->user_password);        
+            if ($password == class_decrypt::transformstring($array, $array2))
+            {
+               return true;     
+            }
+            return false;   
         }
-        return false;       
+        else
+        {
+            return false;
+        }    
     }
     
     private function get_user_location()

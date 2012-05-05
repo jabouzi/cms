@@ -203,6 +203,19 @@ class Admin extends CI_Controller
         }
     }
     
+    function save_category_info($cat_id, $cat_name, $cat_active, $cat_parent)
+    {
+		$active = 0;
+		if ('true' == $cat_active) $active = 1;
+		$data = array();
+        $data['category_name'] = $cat_name;
+        $data['category_parent_id'] = $cat_parent;
+        $data['category_active'] = $active;
+        $data['category_modified'] = date('Y-m-d H:i:s');
+        var_dump($cat_id,$data);
+        $this->category_model->update_category($cat_id, $data);
+    }
+    
     private function update_post($post_id, $post_data)
     {
         if (isset($post_data['publish']))

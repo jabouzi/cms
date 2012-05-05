@@ -41,10 +41,10 @@ $(document).ready(function(){
     });
 
     $("#form").validator({ 
-    	position: 'top', 
-    	offset: [25, 10],
-    	messageClass:'form-error',
-    	message: '<div><em/></div>' // em element is the arrow
+        position: 'top', 
+        offset: [25, 10],
+        messageClass:'form-error',
+        message: '<div><em/></div>' // em element is the arrow
     }).attr('novalidate', 'novalidate');
 });
 </script> 
@@ -54,26 +54,26 @@ $(document).ready(function(){
 <body class="login">
     <div class="login-box main-content">
       <header><h2>MyCMS Login</h2></header>
-    	<section>
-    		<div class="message info">Enter your username and password and press Login</div>
-    		<form id="form" action="<?=base_url()?>login/userloginaction/" method="post" class="clearfix">
-			<p>
-				<input type="text" id="username"  class="full" value="" name="username" required="required" placeholder="Username" />
-			</p>
-			<p>
-				<input type="password" id="password" class="full" value="" name="password" required="required" placeholder="Password" />
-			</p>
-			<p class="clearfix">
-				<span class="fl">
-					<input type="checkbox" id="remember" class="" value="1" name="remember"/>
-					<label class="choice" for="remember">Remember me</label>
-				</span>
+        <section>
+            <div class="message info">Enter your username and password and press Login</div>
+            <form id="form" action="<?=base_url()?>login/userloginaction/" method="post" class="clearfix">
+            <p>
+                <input type="text" id="username"  class="full" value="" name="username" required="required" placeholder="Username" />
+            </p>
+            <p>
+                <input type="password" id="password" class="full" value="" name="password" required="required" placeholder="Password" />
+            </p>
+            <p class="clearfix">
+                <span class="fl">
+                    <input type="checkbox" id="remember" class="" value="1" name="remember"/>
+                    <label class="choice" for="remember">Remember me</label>
+                </span>
 
-				<button class="button button-gray fr" type="submit">Login</button>
-			</p>
-		</form>
-		<ul><li><strong>HELP!</strong>&nbsp;<a href="#">I forgot my password!</a></li></ul>
-    	</section>
+                <button class="button button-gray fr" type="submit">Login</button>
+            </p>
+        </form>
+        <ul><li><strong>HELP!</strong>&nbsp;<a href="#">I forgot my password!</a></li></ul>
+        </section>
     </div>
 </body>
 </html>

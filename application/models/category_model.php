@@ -53,7 +53,8 @@ class Category_model extends CI_Model
         $this->db->where('category_id',$id);     
         $this->db->update('cms_categories',array(            
             'category_name' => $data['category_name'],
-            'category_date' => $data['category_date'],
+            'category_parent_id' => $data['category_parent_id'],
+            'category_active' => $data['category_active'],
             'category_modified' => $data['category_modified'], 
         ));       
     }
