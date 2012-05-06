@@ -23,3 +23,14 @@ function send_post_data($url,$data)
     $request->setMethod(HTTP_Request2::METHOD_POST)->addPostParameter($data);
     return $request->send();
 }
+
+function set_active_menu($active)
+{
+    $menu = array();
+    for($i = 0; $i <= 5; $i++)
+    {
+        $menu[$i] = '';
+    }
+    $menu[$active] = 'active';
+    return $menu;
+}

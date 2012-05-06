@@ -18,7 +18,7 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
-            $active = array('active','','','','');
+            $active = set_active_menu(0);
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $this->load->view('admin_header');    
@@ -37,7 +37,7 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
-            $active = array('','active','','','');
+            $active = set_active_menu(1);
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $post_data['posts'] = $this->post_model->get_posts_infos();
@@ -68,7 +68,7 @@ class Admin extends CI_Controller
                 redirect('admin/editpost/'.$new_id);               
             }
             
-            $active = array('','','active','','');
+            $active = set_active_menu(2);
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
@@ -109,7 +109,7 @@ class Admin extends CI_Controller
                 }
             }
             
-            $active = array('','active','','','');
+            $active = set_active_menu(1);
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
@@ -145,7 +145,7 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
-            $active = array('','','','active','');
+            $active = set_active_menu(3);
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $comments_data['comments'] = $this->comment_model->get_all();
@@ -165,7 +165,7 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
-            $active = array('','','','','active');
+            $active = set_active_menu(4);
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $categories_data['categories'] = $this->category_model->get_all();

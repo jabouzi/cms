@@ -12,6 +12,7 @@
                             <li class="<?=$active[2]?>"><a class="nav-icon icon-new-post" href="/admin/newpost/">New Post</a></li>
                             <li class="<?=$active[3]?>"><a class="nav-icon icon-comment" href="/admin/comments/">Comments</a></li>
                             <li class="<?=$active[4]?>"><a class="nav-icon icon-category" href="/admin/categories/">Categories</a></li>
+                            <li class="<?=$active[5]?>"><a class="nav-icon icon-menu" href="/admin/menu/">Menu</a></li>
                         </ul>
                     </nav>
                 </aside>

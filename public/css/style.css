@@ -1039,6 +1039,9 @@ body.login {
 .icon-add-category {
     background-image: url(../images/icons/add-blue.png) !important;
 }
+.icon-menu {
+    background-image: url(../images/icons/report.png) !important;
+}
 
 /**
  * Footer
