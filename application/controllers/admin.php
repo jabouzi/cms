@@ -61,7 +61,10 @@ class Admin extends CI_Controller
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
                 $new_id = $this->add_post($_POST);
-                $this->update_post_categories($new_id, $_POST['post_categories']);                
+                if (isset($_POST['post_categories']))
+                {
+                    $this->update_post_categories($new_id, $_POST['post_categories']);       
+                }         
                 redirect('admin/editpost/'.$new_id);               
             }
             
@@ -97,8 +100,13 @@ class Admin extends CI_Controller
             $post_data['save'] = '';
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
+                //ini_set('xdebug.var_display_max_data', 8000 );
+                //var_dump($_POST['post_content']);exit;
                 $this->update_post($post_id, $_POST);
-                $this->update_post_categories($post_id, $_POST['post_categories']);
+                if (isset($_POST['post_categories']))
+                {
+                    $this->update_post_categories($post_id, $_POST['post_categories']);
+                }
             }
             
             $active = array('','active','','','');
@@ -111,6 +119,7 @@ class Admin extends CI_Controller
             $post_data['post'] = $this->post_model->get_post($post_id);
             $post_categories = $this->category_model->get_post_categories($post_id);
             $post_data['categories'] = $this->category_model->get_all();
+            $post_data['post_categories'] = array();
             foreach($post_categories as $category)
             {
                 $post_data['post_categories'][] = $category->category_id;
@@ -194,6 +203,19 @@ class Admin extends CI_Controller
         }
     }
     
+    function add_full_category($cat_name, $cat_active, $cat_parent)
+    {
+        $active = 0;
+        if ('true' == $cat_active) $active = 1;
+        $data = array();
+        $data['category_name'] = $cat_name;
+        $data['category_parent_id'] = $cat_parent;
+        $data['category_active'] = $active;
+        $data['category_date'] = date('Y-m-d H:i:s');
+        $data['category_modified'] = ''; 
+        $this->category_model->add_full_category($data);
+    }
+    
     function get_category_info($cat_id)
     {
         if (isAjax())
@@ -205,14 +227,13 @@ class Admin extends CI_Controller
     
     function save_category_info($cat_id, $cat_name, $cat_active, $cat_parent)
     {
-		$active = 0;
-		if ('true' == $cat_active) $active = 1;
-		$data = array();
+        $active = 0;
+        if ('true' == $cat_active) $active = 1;
+        $data = array();
         $data['category_name'] = $cat_name;
         $data['category_parent_id'] = $cat_parent;
         $data['category_active'] = $active;
         $data['category_modified'] = date('Y-m-d H:i:s');
-        var_dump($cat_id,$data);
         $this->category_model->update_category($cat_id, $data);
     }
     

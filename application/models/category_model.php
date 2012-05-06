@@ -28,13 +28,27 @@ class Category_model extends CI_Model
     public function get_post_categories($id)
     {        
         $this->db->where('post_id',$id);
-        return $this->db->get('cms_posts_categories')->result();
+        $result = $this->db->get('cms_posts_categories')->result();
+        return $result;
     }
    
     public function add_category($data)
     {
         $this->db->insert('cms_categories', array(
             'category_name' => $data['category_name'],
+            'category_date' => $data['category_date'],
+            'category_modified' => $data['category_modified'],         
+        ));      
+
+        return $this->db->insert_id();
+    }
+    
+    public function add_full_category($data)
+    {
+        $this->db->insert('cms_categories', array(
+            'category_name' => $data['category_name'],
+            'category_parent_id' => $data['category_parent_id'],
+            'category_active' => $data['category_active'],
             'category_date' => $data['category_date'],
             'category_modified' => $data['category_modified'],         
         ));      

@@ -12,7 +12,7 @@
                             <div class="grid_6">
                                 <div class="message info ac">
                                     <h3>Get started: <a href="#">Add contacts to your account</a></h3>
-                                    <p>Mettre google analytics ici !. ou autres systèmes semblabes, les posts les plus vues</p>
+                                    <p>Mettre google analytics ici !. ou autres systÃ¨mes semblabes, les posts les plus vues</p>
                                 </div>
                             </div>
 

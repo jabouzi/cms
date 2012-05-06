@@ -1,7 +1,18 @@
                 <!-- Main Section -->
 
                 <section class="main-section grid_7">
-
+                    <div id="display_message" class="message error">
+                        <h3>Error!</h3>
+                        <p id="error_message">
+                            An error occured during the post update.                                
+                        </p>
+                    </div>
+                    <div id="display_message" class="message success">
+                        <h3>Success!</h3>
+                        <p id="success_message">
+                            The post was updated with success.
+                        </p>
+                    </div>
                     <div class="main-content grid_3 alpha">
                         <header>
                             <ul class="action-buttons clearfix fr">
@@ -9,8 +20,8 @@
                                 <h2>Posts categories <a href="#"></a></h2>                                
                         </header>
                         <section>
-							<p>
-                                <a class="modalInput button button-blue" rel="#prompt2">Add new category</a>
+                            <p>
+                                <a id="add_category" class="button button-blue">Add new category</a>
                             </p>
 
                             <ul id="categories" class="listing list-view clearfix">
@@ -49,14 +60,14 @@
                                     <label>Add to menu <small>Checke it if yes</small></label><input type="checkbox" id="category_active" name="category_active" value="1"/>
                                     <label>Parent Category <small>Select a category</small></label>
                                     <select id="parent_category" name="parent_category">
-                                        <option id="cat_0">Select a category parent</option>
+                                        <option id="cat_0" value="0">Select a category parent</option>
                                         <?foreach($categories as $category):?>
                                             <option class="category_opt" value="<?=$category->category_id?>" id="cat_<?=$category->category_id?>"><?=$category->category_name?></option>
                                         <?endforeach?>        
                                     </select>
                                     <div class="action">
-                                        <button class="button button-gray" onclick="save_category_infos()"><span class="accept"></span>OK</button>
-                                        <button class="button button-gray" onclick="get_category_infos()">Reset</button>
+                                        <button id="save_category" class="button button-gray"><span class="accept"></span>OK</button>
+                                        <button id="reset_category" class="button button-gray">Reset</button>
                                         <input type="hidden" value="" id="category_id" />
                                     </div>
                                 </fieldset>
@@ -67,25 +78,6 @@
                 </section>
 
                 <!-- Main Section End -->
-                
-                <div class="widget modal" id="prompt2">
-                 <header><h2>This is a modal dialog</h2></header>
-                 <section>
-                     <p>
-                         You can only interact with elements that are inside this dialog.
-                         To close it click a button or use the ESC key.
-                     </p>
-
-                     <!-- input form. you can press enter too -->
-                     
-                         <input type="text" id="post_new_category" name="post_new_category"/>
-                         <hr />
-                         <button class="button button-gray close" id="add_category_button" type="submit">OK</button>
-                         <button class="button button-gray close" type="button">Cancel</button>
-                   
-                 </section>
-                </div>
-
 
             </div>
             <div id="push"></div>
