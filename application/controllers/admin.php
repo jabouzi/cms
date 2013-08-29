@@ -18,6 +18,18 @@ class Admin extends CI_Controller
     {    
         if (isset($this->session->userdata['user']))
         {
+            $this->posts();
+        }
+        else
+        {
+            redirect('login/');
+        }
+    }
+    
+    function dashboard()
+    {    
+        if (isset($this->session->userdata['user']))
+        {
             $active = set_active_menu(0);
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
