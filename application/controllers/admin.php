@@ -181,7 +181,11 @@ class Admin extends CI_Controller
             $data['active'] = $active;
             $header_data['user_name'] = $this->session->userdata['name'];
             $categories_data['categories'] = $this->category_model->get_all();
-            $this->load->view('admin_header');    
+            $js[] = base_url()."public/cleeditor/jquery.cleditor.min.js";
+            $css[] = base_url()."public/cleeditor/jquery.cleditor.css";
+            $data['javascript'] = $js;
+            $data['stylesheet'] = $css;
+            $this->load->view('admin_header',$data);    
             $this->load->view('admin_topmenu',$header_data);    
             $this->load->view('admin_leftmenu',$data);
             $this->load->view('admin_categories',$categories_data);    
